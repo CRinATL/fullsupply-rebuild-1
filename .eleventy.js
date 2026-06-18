@@ -10,6 +10,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   return {
+    // Served from a GitHub Pages project subpath. The `url` filter and
+    // page.url values are prefixed with this automatically.
+    pathPrefix: "/fullsupply-rebuild-1/",
     dir: {
       input: "src",
       output: "_site",

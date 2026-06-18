@@ -11,8 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/css/tokens.css" />
-    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="{{ '/assets/css/tokens.css' | url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/base.css' | url }}" />
   </head>
   <body>
     {% include "header.njk" %}
@@ -20,6 +20,6 @@
       {{ content | safe }}
     </main>
     {% include "footer.njk" %}
-    <script src="/assets/js/nav.js" defer></script>
+    <script src="{{ '/assets/js/nav.js' | url }}" defer></script>
   </body>
 </html>
