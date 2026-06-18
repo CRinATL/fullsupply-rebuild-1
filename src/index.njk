@@ -1,19 +1,162 @@
 ---
 layout: base.njk
 title: Home
-description: Full Supply — clean rebuild (scaffold).
+description: Helping Faith-Driven Women to Grow in Faith and Lead with Confidence.
 ---
-{% from "components/macros.njk" import button, section, sectionHead, hero %}
+{% from "components/macros.njk" import button, section, sectionHead, hero, ctaBand, card, cardGrid %}
 
-{% call hero("Full Supply", subtitle="Clean rebuild scaffold. This Eleventy + vanilla-CSS site replaces the original WordPress build. Real content and design land in Phases 1–3.", center=true) %}
-  {{ button("View the style guide", "/styleguide/" | url, variant="accent") }}
+{% set scheduleUrl = "https://sfkakxvwfuajznbsmu.10to8.com/" %}
+
+{# ===================== HERO ===================== #}
+{% call hero(
+  "Training Leaders. Transforming Lives.",
+  subtitle="Helping Faith-Driven Women to Grow in Faith and Lead Others with Confidence.",
+  bgImage=("/assets/img/home-hero-connie.jpg" | url)
+) %}
+  {{ button("Schedule a Call", scheduleUrl, variant="accent", size="lg", attrs='target="_blank" rel="noopener"') }}
 {% endcall %}
 
+{# ===================== THREE PILLARS (icon row) ===================== #}
+{% call section(tone="alt", size="tight") %}
+  {% call cardGrid(cols="3") %}
+    {{ card("Strengthen Your Faith", icon="&#10070;", feature=true) }}
+    {{ card("Confidently Mentor Women", icon="&#9825;", feature=true) }}
+    {{ card("Shape Future Leaders", icon="&#9733;", feature=true) }}
+  {% endcall %}
+{% endcall %}
+
+{# ===================== DO YOU FIND YOURSELF SAYING… ===================== #}
 {% call section() %}
-  {{ sectionHead("Phase 0 is live", eyebrow="Status") }}
-  <p>
-    Shared layout, header, footer, navigation, design tokens, and the GitHub Pages deploy
-    pipeline are in place. The Phase 1 design system and component library now back the
-    <a href="{{ '/styleguide/' | url }}">style guide</a>. See <code>PLAN.md</code> for the roadmap.
-  </p>
+  {{ sectionHead("Do you find yourself saying…", eyebrow="A heart to mentor") }}
+  <ul class="home-says">
+    <li>&ldquo;I would like training so I will know how to mentor effectively.&rdquo;</li>
+    <li>&ldquo;I would like to be confident and build a solid foundation in my biblical knowledge.&rdquo;</li>
+    <li>&ldquo;I feel a strong desire to help mentor other women in their spiritual growth.&rdquo;</li>
+  </ul>
+  <p>At Full Supply, we understand many Christian women have apprehensions about themselves and mentoring. But we believe you have the capacity to make a valuable contribution in a woman&rsquo;s faith journey.</p>
+  <p>That&rsquo;s why we are committed to providing you the training, mentoring and resources you need to become a more confident mentor who shapes future leaders for kingdom impact.</p>
+  <p>We want to help bring out the mentor leader in you.</p>
+  <p>{{ button("Schedule a Call", scheduleUrl, variant="accent", attrs='target="_blank" rel="noopener"') }}</p>
+{% endcall %}
+
+{# ===================== AT FULL SUPPLY, YOU CAN EXPECT… ===================== #}
+{% call section(tone="tan") %}
+  {{ sectionHead("At Full Supply, you can expect…", center=true) }}
+  {% call cardGrid(cols="3") %}
+    {{ card("Biblical Foundation", text="Grounded teaching that builds confidence in your scriptural knowledge.", feature=true) }}
+    {{ card("Practical Skills", text="Tools and frameworks to mentor women well and with intention.", feature=true) }}
+    {{ card("Peer Mentoring", text="A supportive community of women walking alongside you.", feature=true) }}
+  {% endcall %}
+{% endcall %}
+
+{# ===================== ONE MINUTE MENTORING SIGN-UP BAND ===================== #}
+{% call section(tone="primary", id="one-minute-mentoring") %}
+  <div class="home-omm">
+    <div class="home-omm__media">
+      <img src="{{ '/assets/img/one-minute-mentoring-logo.png' | url }}" alt="One Minute Mentoring" loading="lazy" />
+    </div>
+    <div class="home-omm__body">
+      <span class="section__eyebrow">Sign-up for our One Minute Mentoring Vlog</span>
+      <h2>Sign-up for One Minute Mentoring!</h2>
+      <p>You are invited to sign up for our FREE weekly video message that delivers encouragement, insight and actionable takeaways directly to your email.</p>
+
+      <!-- TODO(forms): wire to Formspree endpoint -->
+      <form class="home-signup" action="#" method="post" aria-label="One Minute Mentoring sign-up">
+        <div class="home-signup__field">
+          <label for="omm-first">First Name</label>
+          <input type="text" id="omm-first" name="first_name" autocomplete="given-name" required />
+        </div>
+        <div class="home-signup__field">
+          <label for="omm-last">Last Name</label>
+          <input type="text" id="omm-last" name="last_name" autocomplete="family-name" required />
+        </div>
+        <div class="home-signup__field">
+          <label for="omm-email">Email</label>
+          <input type="email" id="omm-email" name="email" autocomplete="email" required />
+        </div>
+        <div class="home-signup__actions">
+          <button class="btn btn--accent" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== THE PATH TO MENTORING ===================== #}
+{% call section() %}
+  {{ sectionHead("The Path to Mentoring at Full Supply", center=true) }}
+  <div class="home-path">
+    <div class="home-path__media">
+      <img src="{{ '/assets/img/path-to-mentoring.jpg' | url }}" alt="A mentor and mentee in conversation" loading="lazy" />
+    </div>
+    <div class="home-path__steps">
+      {% call cardGrid(cols="3") %}
+        {{ card("Grow", text="We train you on how to help your mentee establish a strong Biblical foundation and identify how Jesus is working in their life.", icon="1", feature=true) }}
+        {{ card("Build", text="We help you cement your mentee&rsquo;s foundation by building their relationship with Jesus and exploring ways to put their faith into action within their world.", icon="2", feature=true) }}
+        {{ card("Lead", text="We give you the tools and resources to lead your mentees to become equipped and confident in their faith and share it with others.", icon="3", feature=true) }}
+      {% endcall %}
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== TESTIMONIALS ===================== #}
+{% call section(tone="alt") %}
+  {{ sectionHead("What women are saying", eyebrow="Testimonials", center=true) }}
+  {% call cardGrid(cols="3") %}
+    {{ card(
+      "Sharon Frost",
+      text="&ldquo;Though there is a curriculum to follow, I felt like Full Supply met me where I was and gave me a framework to meet the needs of women looking for a mentor.&rdquo;",
+      image=("/assets/img/testimonial-sharon-frost.jpg" | url)
+    ) }}
+    {{ card(
+      "A Full Supply Mentor",
+      text="&ldquo;Full Supply puts other women in your Amen corner. Their reassurance and guidance equip women to be confident and strong in their faith.&rdquo;"
+    ) }}
+    {{ card(
+      "Zahra Bailey",
+      text="&ldquo;Full Supply is a place where you can be and become fully you. They help you become who you are destined to be.&rdquo;",
+      image=("/assets/img/testimonial-zahra-bailey.jpg" | url)
+    ) }}
+  {% endcall %}
+{% endcall %}
+
+{# ===================== START WITH OUR ONLINE TRAINING / REGISTRATION ===================== #}
+{% call section() %}
+  {{ sectionHead("Start With Our Online Training", eyebrow="Registration", center=true) }}
+  <div class="home-training">
+    <div class="home-training__media">
+      <img src="{{ '/assets/img/mentors-launchpad.jpg' | url }}" alt="The Mentor&rsquo;s Launchpad online training" loading="lazy" />
+    </div>
+    <div class="home-training__body">
+      <h3>The Mentor&rsquo;s Launchpad</h3>
+      <p><strong>One-Day Virtual Training Held On:</strong></p>
+      <ul>
+        <li>September 18, 2026: 9 a.m. &ndash; 3 p.m. EST</li>
+      </ul>
+      <p><strong>Cost:</strong></p>
+      <ul>
+        <li><strong>$39.00 Early Bird Special</strong> &mdash; Register on or before Friday, September 4th, 2026</li>
+        <li><strong>$49.00 Regular Rate</strong> &mdash; Registrations after Saturday, September 5th, 2026</li>
+      </ul>
+      {# Links to The Mentor's Launchpad event page — out of scope in this phase; placeholder anchor. #}
+      <p>{{ button("Yes, I want to Register", "#", variant="accent", size="lg") }}</p>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== WHAT MAKES FULL SUPPLY SO DIFFERENT? ===================== #}
+{% call section(tone="tan", narrow=true) %}
+  {{ sectionHead("What makes Full Supply so different?", center=true) }}
+  <p>Our founder, Connie, launched Full Supply as a mentoring process designed exclusively for women. Using a strong Biblical foundation paired with a caring relational approach, our process guides women to grow, build and lead other women well.</p>
+  <p>When women go through the Full Supply training and mentoring programs, they become confident believers ready to lead, mentor and shape future leaders for Christ.</p>
+  <p>Discover the difference mentoring makes&hellip;</p>
+{% endcall %}
+
+{# ===================== CLOSING CTA BAND ===================== #}
+{% call ctaBand(
+  "Ready to bring out the mentor leader in you?",
+  text="Let&rsquo;s talk about how Full Supply can equip you to grow in faith and lead with confidence.",
+  bgImage=("/assets/img/cta-band-bg.jpg" | url)
+) %}
+  {{ button("Schedule a Call", scheduleUrl, variant="outline-light", size="lg", attrs='target="_blank" rel="noopener"') }}
 {% endcall %}
