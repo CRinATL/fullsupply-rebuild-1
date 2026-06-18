@@ -1,32 +1,250 @@
 ---
 layout: base.njk
 title: Style Guide
-description: Brand tokens and components for the Full Supply rebuild.
+description: Living design-system reference for the Full Supply rebuild — tokens and components.
 ---
+{% from "components/macros.njk" import button, section, sectionHead, hero, pageHeader, ctaBand, card, cardGrid %}
 
-<section class="container" style="padding-block: var(--space-6);">
-  <h1>Style Guide</h1>
-  <p>Living reference for the rebuild. Expanded by the design-system agent in Phase 1.</p>
+<style>
+  /* Style-guide-only helpers (not part of the component library). */
+  .sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+  .sg-swatch__chip { height: 72px; border-radius: var(--radius); border: 1px solid #0001; }
+  .sg-swatch small { display: block; margin-top: var(--space-1); line-height: 1.4; }
+  .sg-swatch code { font-size: 0.75rem; }
+  .sg-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+  .sg-scale > * { margin: 0 0 var(--space-2); }
+  .sg-scale span { font-size: var(--fs-sm); color: var(--color-text-muted); font-family: ui-monospace, monospace; }
+  .sg-space { background: var(--color-accent); height: 16px; border-radius: 3px; }
+  .sg-space-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+  .sg-space-row code { min-width: 90px; }
+  .sg-block { border: 1px dashed var(--color-border); border-radius: var(--radius); padding: var(--space-2); margin-bottom: var(--space-5); }
+  .sg-block > h3 { margin-top: 0; }
+  pre.sg-code { background: var(--color-dark-plum); color: #f6f6f6; padding: var(--space-3); border-radius: var(--radius); overflow-x: auto; font-size: 0.8rem; line-height: 1.5; }
+  pre.sg-code code { background: none; color: inherit; padding: 0; }
+  .sg-toc ul { columns: 2; }
+</style>
 
-  <h2>Colors</h2>
-  <div style="display:flex; flex-wrap:wrap; gap:var(--space-3);">
-    {% for name, value in site.brand %}
-      <div style="width:120px;">
-        <div style="height:64px; border-radius:var(--radius); background:{{ value }}; border:1px solid #0001;"></div>
-        <small>{{ name }}<br />{{ value }}</small>
+{{ pageHeader(
+  "Design System & Style Guide",
+  subtitle="A living catalog of brand tokens and reusable components for the Full&nbsp;Supply rebuild. Phase&nbsp;3 page-builders: import macros from <code>components/macros.njk</code>.",
+  overlay="purple"
+) }}
+
+{% call section() %}
+  <nav class="sg-toc" aria-label="Style guide sections">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#type">Typography &amp; type scale</a></li>
+      <li><a href="#spacing">Spacing scale</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#sections">Section wrapper</a></li>
+      <li><a href="#hero">Hero / banner</a></li>
+      <li><a href="#pageheader">Page header</a></li>
+      <li><a href="#cta">CTA band</a></li>
+      <li><a href="#cards">Cards &amp; card grid</a></li>
+    </ul>
+  </nav>
+
+  <h2>How to use</h2>
+  <p>Every component is a Nunjucks macro. Import the ones you need at the top of a template, then call them. Internal links and asset paths must be run through the <code>| url</code> filter.</p>
+<pre class="sg-code"><code>{% raw %}{% from "components/macros.njk" import button, hero, section, card, cardGrid %}
+
+{{ hero("Training Leaders.", subtitle="Mentoring that multiplies.",
+        bgImage=("/assets/img/hero.jpg" | url)) }}{% endraw %}</code></pre>
+{% endcall %}
+
+{# ===================== COLORS ===================== #}
+{% call section(tone="alt", id="colors") %}
+  {{ sectionHead("Colors", eyebrow="Tokens", lead="Brand palette as CSS custom properties in <code>tokens.css</code>.") }}
+
+  <h3>Brand &amp; semantic</h3>
+  <div class="sg-swatches">
+    {% set swatches = [
+      ["--color-purple", "#7c2c83", "Primary"],
+      ["--color-purple-dark", "#602368", "Primary hover"],
+      ["--color-green", "#65bc7b", "Accent"],
+      ["--color-green-dark", "#4f9d63", "Accent hover"],
+      ["--color-ink", "#212934", "Body text"],
+      ["--color-dark-plum", "#180016", "Headings / footer"],
+      ["--color-tan", "#c1b299", "Warm neutral"],
+      ["--color-off-white", "#f6f6f6", "Alt background"],
+      ["--color-bg-tan", "#f2efea", "Warm panel"],
+      ["--color-gray", "#747474", "Muted text"],
+      ["--color-border", "#e3e0dc", "Borders"],
+      ["--color-white", "#ffffff", "Surface"]
+    ] %}
+    {% for s in swatches %}
+      <div class="sg-swatch">
+        <div class="sg-swatch__chip" style="background: var({{ s[0] }});"></div>
+        <small><strong>{{ s[2] }}</strong><br /><code>{{ s[0] }}</code><br /><code>{{ s[1] }}</code></small>
       </div>
     {% endfor %}
   </div>
 
-  <h2 style="margin-top:var(--space-6);">Typography</h2>
-  <h1>Heading 1</h1>
-  <h2>Heading 2</h2>
-  <h3>Heading 3</h3>
-  <p>Body copy in Montserrat. The quick brown fox jumps over the lazy dog.</p>
+  <h3 style="margin-top:var(--space-5);">Overlay gradients</h3>
+  <p class="section__lead">Layered over background images on heroes, page headers and CTA bands.</p>
+  <div class="sg-swatches">
+    <div class="sg-swatch"><div class="sg-swatch__chip" style="background: var(--overlay-purple);"></div><small><code>--overlay-purple</code></small></div>
+    <div class="sg-swatch"><div class="sg-swatch__chip" style="background: var(--overlay-green);"></div><small><code>--overlay-green</code></small></div>
+    <div class="sg-swatch"><div class="sg-swatch__chip" style="background: var(--overlay-dark);"></div><small><code>--overlay-dark</code></small></div>
+  </div>
+{% endcall %}
 
-  <h2 style="margin-top:var(--space-6);">Buttons</h2>
-  <p>
-    <a class="btn" href="#">Primary</a>
-    <a class="btn btn--accent" href="#">Accent</a>
-  </p>
-</section>
+{# ===================== TYPOGRAPHY ===================== #}
+{% call section(id="type") %}
+  {{ sectionHead("Typography", eyebrow="Tokens", lead="Montserrat throughout. Headings use the dark-plum ink; body uses ink gray.") }}
+  <div class="sg-scale">
+    <h1>Heading 1 <span>h1 · --fs-4xl · 800</span></h1>
+    <h2>Heading 2 <span>h2 · --fs-3xl · 700</span></h2>
+    <h3>Heading 3 <span>h3 · --fs-xl · 600</span></h3>
+    <h4>Heading 4 <span>h4 · --fs-lg · 600</span></h4>
+    <h5>Heading 5 <span>h5 · uppercase</span></h5>
+    <h6>Heading 6 <span>h6 · uppercase</span></h6>
+    <p>Body copy in Montserrat. The quick brown fox jumps over the lazy dog. <a href="#">This is a text link</a> inside a paragraph.</p>
+    <p><strong>Bold (700)</strong> · <em>italic</em> · <code>inline code</code></p>
+    <blockquote>A blockquote: mentoring that equips ordinary people to do extraordinary things.</blockquote>
+    <ul><li>Unordered list item</li><li>Another item</li></ul>
+  </div>
+{% endcall %}
+
+{# ===================== SPACING ===================== #}
+{% call section(tone="alt", id="spacing") %}
+  {{ sectionHead("Spacing scale", eyebrow="Tokens", lead="Use these for padding/margins to keep rhythm consistent.") }}
+  {% set spaces = [
+    ["--space-1", "0.25rem"], ["--space-2", "0.5rem"], ["--space-3", "1rem"],
+    ["--space-4", "1.5rem"], ["--space-5", "2rem"], ["--space-6", "3rem"],
+    ["--space-7", "5rem"], ["--space-8", "7rem"]
+  ] %}
+  {% for sp in spaces %}
+    <div class="sg-space-row">
+      <code>{{ sp[0] }}</code>
+      <span style="color:var(--color-text-muted); width:60px;">{{ sp[1] }}</span>
+      <div class="sg-space" style="width: var({{ sp[0] }});"></div>
+    </div>
+  {% endfor %}
+{% endcall %}
+
+{# ===================== BUTTONS ===================== #}
+{% call section(id="buttons") %}
+  {{ sectionHead("Buttons", eyebrow="Component", lead="Macro: <code>button(label, href, variant, size, attrs)</code>") }}
+
+  <div class="sg-block">
+    <h3>Variants</h3>
+    <div class="sg-row">
+      {{ button("Primary", "#") }}
+      {{ button("Accent", "#", variant="accent") }}
+      {{ button("Outline", "#", variant="outline") }}
+    </div>
+  </div>
+
+  <div class="sg-block">
+    <h3>Sizes</h3>
+    <div class="sg-row">
+      {{ button("Small", "#", size="sm") }}
+      {{ button("Default", "#") }}
+      {{ button("Large", "#", size="lg") }}
+    </div>
+  </div>
+
+  <div class="sg-block" style="background: var(--color-dark-plum); border-color: var(--color-dark-plum);">
+    <h3 style="color:#fff;">On dark backgrounds</h3>
+    <div class="sg-row">
+      {{ button("Accent", "#", variant="accent") }}
+      {{ button("Outline light", "#", variant="outline-light") }}
+    </div>
+  </div>
+
+<pre class="sg-code"><code>{% raw %}{{ button("Give Now", "/ways-to-give/" | url, variant="accent", size="lg") }}
+{{ button("Read more", "/about/" | url, variant="outline") }}{% endraw %}</code></pre>
+{% endcall %}
+
+{# ===================== SECTION ===================== #}
+{% call section(tone="alt", id="sections") %}
+  {{ sectionHead("Section wrapper", eyebrow="Component", lead="Macro: <code>{% call section(tone, size, narrow, id) %}…{% endcall %}</code>. Wraps content in a padded <code>.container</code>.") }}
+  <p><strong>Tones:</strong> <code>(default)</code>, <code>alt</code>, <code>tan</code>, <code>primary</code>, <code>accent</code>, <code>dark</code>. <strong>Sizes:</strong> <code>(default)</code>, <code>tight</code>, <code>loose</code>.</p>
+  <p>Pair with <code>sectionHead(title, eyebrow, lead, center)</code> for a heading block. This whole page is built from sections.</p>
+<pre class="sg-code"><code>{% raw %}{% call section(tone="tan") %}
+  {{ sectionHead("What we do", eyebrow="Our work", center=true) }}
+  <p>…content…</p>
+{% endcall %}{% endraw %}</code></pre>
+{% endcall %}
+
+{# Live tone demos #}
+{% call section(tone="tan") %}
+  {{ sectionHead("Tone: tan", center=true, lead="Warm neutral panel.") }}
+{% endcall %}
+{% call section(tone="primary") %}
+  {{ sectionHead("Tone: primary", center=true, lead="Purple panel with inverted text.") }}
+{% endcall %}
+{% call section(tone="accent") %}
+  {{ sectionHead("Tone: accent", center=true, lead="Green panel with inverted text.") }}
+{% endcall %}
+{% call section(tone="dark") %}
+  {{ sectionHead("Tone: dark", center=true, lead="Dark plum panel with inverted text.") }}
+{% endcall %}
+
+{# ===================== HERO ===================== #}
+{% call section(id="hero") %}
+  {{ sectionHead("Hero / banner", eyebrow="Component", lead="Macro: <code>hero(title, subtitle, bgImage, overlay, center)</code>. Buttons go in the call block. <code>overlay</code>: purple | green | dark.") }}
+<pre class="sg-code"><code>{% raw %}{% call hero("Training Leaders.", subtitle="Mentoring that multiplies.",
+            bgImage=("/assets/img/hero.jpg" | url), center=true) %}
+  {{ button("Get started", "/nowa/" | url, variant="accent") }}
+  {{ button("Watch the vlog", "/vlog/" | url, variant="outline-light") }}
+{% endcall %}{% endraw %}</code></pre>
+{% endcall %}
+
+{# Live hero demos — no bgImage, so overlay colors show as the background #}
+{% call hero("Training Leaders.", subtitle="Equipping people to mentor, model and multiply.", center=true) %}
+  {{ button("Get started", "#", variant="accent") }}
+  {{ button("Learn more", "#", variant="outline-light") }}
+{% endcall %}
+{% call hero("Green overlay variant", subtitle="Left-aligned, green overlay.", overlay="green") %}
+  {{ button("Donate", "#", variant="outline-light") }}
+{% endcall %}
+
+{# ===================== PAGE HEADER ===================== #}
+{% call section(tone="alt", id="pageheader") %}
+  {{ sectionHead("Page header", eyebrow="Component", lead="Macro: <code>pageHeader(title, subtitle, bgImage, overlay, breadcrumb)</code>. Compact banner for interior pages — the banner at the top of this page is one.") }}
+<pre class="sg-code"><code>{% raw %}{{ pageHeader("About Us", subtitle="Who we are and why we do it.",
+             bgImage=("/assets/img/about-banner.jpg" | url)) }}{% endraw %}</code></pre>
+{% endcall %}
+{{ pageHeader("About Us", subtitle="Live example — dark overlay variant.", overlay="dark") }}
+
+{# ===================== CTA BAND ===================== #}
+{% call section(id="cta") %}
+  {{ sectionHead("CTA band", eyebrow="Component", lead="Macro: <code>ctaBand(title, text, tone, bgImage)</code>. Buttons go in the call block. <code>tone</code>: accent | primary | dark.") }}
+<pre class="sg-code"><code>{% raw %}{% call ctaBand("Ready to start?", text="Begin your online training today.") %}
+  {{ button("Sign up", "/nowa/" | url, variant="outline-light") }}
+{% endcall %}{% endraw %}</code></pre>
+{% endcall %}
+
+{% call ctaBand("Ready to start mentoring?", text="Begin your online training today and join a community that multiplies.") %}
+  {{ button("Sign up free", "#", variant="outline-light") }}
+{% endcall %}
+{% call ctaBand("Support the mission", text="Primary tone variant.", tone="primary") %}
+  {{ button("Give now", "#", variant="outline-light") }}
+{% endcall %}
+
+{# ===================== CARDS ===================== #}
+{% call section(tone="alt", id="cards") %}
+  {{ sectionHead("Cards & card grid", eyebrow="Component", lead="<code>{% call cardGrid(cols) %}</code> wraps <code>card(title, text, image, href, linkText, icon, feature)</code> calls. <code>cols</code>: auto | 2 | 3 | 4.") }}
+
+  <h3>Linked image cards</h3>
+  {% call cardGrid(cols="3") %}
+    {{ card("No One Walks Alone", text="Our flagship mentoring program connecting people one-to-one.", href="#", linkText="Explore NOWA") }}
+    {{ card("Global Missions", text="Taking the mentoring model around the world.", href="#", linkText="See missions") }}
+    {{ card("One Minute Mentoring", text="Bite-sized weekly encouragement and training.", href="#", linkText="Watch now") }}
+  {% endcall %}
+
+  <h3 style="margin-top:var(--space-6);">Feature cards (icon, centered, borderless)</h3>
+  {% call cardGrid(cols="3") %}
+    {{ card("Mentor", text="Walk alongside someone with intention.", icon="1", feature=true) }}
+    {{ card("Model", text="Show the way through your own life.", icon="2", feature=true) }}
+    {{ card("Multiply", text="Equip others to do the same.", icon="3", feature=true) }}
+  {% endcall %}
+<pre class="sg-code" style="margin-top:var(--space-5);"><code>{% raw %}{% call cardGrid(cols="3") %}
+  {{ card("Global Missions", text="…", href="/global-missions/" | url) }}
+  {{ card("Mentor", text="…", icon="1", feature=true) }}
+{% endcall %}{% endraw %}</code></pre>
+{% endcall %}

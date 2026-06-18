@@ -3,22 +3,17 @@ layout: base.njk
 title: Home
 description: Full Supply — clean rebuild (scaffold).
 ---
+{% from "components/macros.njk" import button, section, sectionHead, hero %}
 
-<section class="hero">
-  <div class="container">
-    <h1>Full Supply</h1>
-    <p>
-      Clean rebuild scaffold. This Eleventy + vanilla-CSS site replaces the original
-      WordPress build. Real content and design land in Phases 1–3.
-    </p>
-    <p><a class="btn btn--accent" href="{{ '/styleguide/' | url }}">View the style guide</a></p>
-  </div>
-</section>
+{% call hero("Full Supply", subtitle="Clean rebuild scaffold. This Eleventy + vanilla-CSS site replaces the original WordPress build. Real content and design land in Phases 1–3.", center=true) %}
+  {{ button("View the style guide", "/styleguide/" | url, variant="accent") }}
+{% endcall %}
 
-<section class="container" style="padding-block: var(--space-6);">
-  <h2>Phase 0 is live</h2>
+{% call section() %}
+  {{ sectionHead("Phase 0 is live", eyebrow="Status") }}
   <p>
     Shared layout, header, footer, navigation, design tokens, and the GitHub Pages deploy
-    pipeline are in place. See <code>PLAN.md</code> for the roadmap.
+    pipeline are in place. The Phase 1 design system and component library now back the
+    <a href="{{ '/styleguide/' | url }}">style guide</a>. See <code>PLAN.md</code> for the roadmap.
   </p>
-</section>
+{% endcall %}

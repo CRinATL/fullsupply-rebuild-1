@@ -1,0 +1,146 @@
+{#
+  Full Supply component library — Nunjucks macros.
+
+  Usage in any template:
+    {% from "components/macros.njk" import button, section, hero, pageHeader, ctaBand, card, cardGrid %}
+
+  All macros emit semantic, accessible markup styled by components.css.
+  Pass internal URLs already run through the `| url` filter, e.g.
+    {{ button("Give", ("/ways-to-give/" | url), variant="accent") }}
+#}
+
+{# ---------------------------------------------------------------
+   button(label, href, variant, size, attrs)
+   variant: "" (primary) | "accent" | "outline" | "outline-light"
+   size:    "" (default) | "lg" | "sm"
+   attrs:   extra raw attributes string, e.g. 'target="_blank" rel="noopener"'
+   --------------------------------------------------------------- #}
+{% macro button(label, href="#", variant="", size="", attrs="") %}
+<a class="btn{% if variant %} btn--{{ variant }}{% endif %}{% if size %} btn--{{ size }}{% endif %}" href="{{ href }}"{% if attrs %} {{ attrs | safe }}{% endif %}>{{ label }}</a>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   section(caller content) — vertical-rhythm wrapper with a .container
+   tone:   "" | "alt" | "tan" | "primary" | "accent" | "dark"
+   size:   "" (default) | "tight" | "loose"
+   narrow: true for a reading-width container
+   id:     optional anchor id
+   Use as a call block:
+     {% call section(tone="alt") %} ...content... {% endcall %}
+   --------------------------------------------------------------- #}
+{% macro section(tone="", size="", narrow=false, id="") %}
+<section class="section{% if size %} section--{{ size }}{% endif %}{% if tone %} section--{{ tone }}{% endif %}"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="container{% if narrow %} container--narrow{% endif %}">
+    {{ caller() }}
+  </div>
+</section>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   sectionHead(title, eyebrow, lead, center) — optional heading block
+   intended to be placed at the top of a section's content.
+   --------------------------------------------------------------- #}
+{% macro sectionHead(title, eyebrow="", lead="", center=false) %}
+<div class="section__head{% if center %} section__head--center{% endif %}">
+  {% if eyebrow %}<span class="section__eyebrow">{{ eyebrow }}</span>{% endif %}
+  <h2>{{ title }}</h2>
+  {% if lead %}<p class="section__lead">{{ lead | safe }}</p>{% endif %}
+</div>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   hero(title, subtitle, bgImage, overlay, center)
+   overlay: "purple" (default) | "green" | "dark"
+   bgImage: full URL (run through `| url` for local assets)
+   Pass buttons/extra markup via the call block (rendered in .hero__actions).
+     {% call hero("Title", subtitle="…", bgImage=("/assets/img/x.jpg"|url)) %}
+       {{ button("Learn more", "/about/"|url, variant="outline-light") }}
+     {% endcall %}
+   --------------------------------------------------------------- #}
+{% macro hero(title, subtitle="", bgImage="", overlay="purple", center=false) %}
+<section class="hero{% if center %} hero--center{% endif %}{% if overlay and overlay != 'purple' %} hero--overlay-{{ overlay }}{% endif %}"{% if bgImage %} style="background-image:url('{{ bgImage }}')"{% endif %}>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__inner">
+      <h1 class="hero__title">{{ title }}</h1>
+      {% if subtitle %}<p class="hero__subtitle">{{ subtitle | safe }}</p>{% endif %}
+      {% if caller %}<div class="hero__actions">{{ caller() }}</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   pageHeader(title, subtitle, bgImage, overlay, breadcrumb)
+   Compact banner for interior pages.
+   breadcrumb: optional raw HTML string of links.
+   --------------------------------------------------------------- #}
+{% macro pageHeader(title, subtitle="", bgImage="", overlay="purple", breadcrumb="") %}
+<section class="page-header{% if overlay and overlay != 'purple' %} page-header--overlay-{{ overlay }}{% endif %}"{% if bgImage %} style="background-image:url('{{ bgImage }}')"{% endif %}>
+  <div class="page-header__overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-header__inner">
+      {% if breadcrumb %}<nav class="page-header__breadcrumb" aria-label="Breadcrumb">{{ breadcrumb | safe }}</nav>{% endif %}
+      <h1 class="page-header__title">{{ title }}</h1>
+      {% if subtitle %}<p class="page-header__subtitle">{{ subtitle | safe }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   ctaBand(title, text, tone, bgImage)
+   tone: "accent" (default, green) | "primary" (purple) | "dark"
+   Buttons go in the call block.
+     {% call ctaBand("Ready?", text="…") %}
+       {{ button("Start now", "/x/"|url, variant="outline-light") }}
+     {% endcall %}
+   --------------------------------------------------------------- #}
+{% macro ctaBand(title, text="", tone="accent", bgImage="") %}
+<section class="cta-band{% if tone and tone != 'accent' %} cta-band--{{ tone }}{% endif %}"{% if bgImage %} style="background-image:url('{{ bgImage }}')"{% endif %}>
+  <div class="cta-band__overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-band__inner">
+      <h2 class="cta-band__title">{{ title }}</h2>
+      {% if text %}<p class="cta-band__text">{{ text | safe }}</p>{% endif %}
+      {% if caller %}<div class="cta-band__actions">{{ caller() }}</div>{% endif %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   cardGrid(cols) — grid wrapper for cards. Place card() calls inside.
+   cols: "" (auto-fit) | "2" | "3" | "4"
+     {% call cardGrid(cols="3") %} {{ card(...) }} {% endcall %}
+   --------------------------------------------------------------- #}
+{% macro cardGrid(cols="") %}
+<div class="card-grid{% if cols %} card-grid--{{ cols }}{% endif %}">
+  {{ caller() }}
+</div>
+{% endmacro %}
+
+{# ---------------------------------------------------------------
+   card(title, text, image, href, linkText, icon, feature)
+   - image: media URL (run through `| url`); omit for a text/icon card.
+   - icon:  short string/emoji/HTML for the circular icon badge.
+   - href:  when set, the whole card becomes a clickable link.
+   - feature=true: borderless, centered icon style for "feature" rows.
+   --------------------------------------------------------------- #}
+{% macro card(title, text="", image="", href="", linkText="Learn more", icon="", feature=false) %}
+<article class="card{% if feature %} card--feature{% endif %}{% if href %} card--link{% endif %}">
+  {% if image %}
+  <div class="card__media"><img src="{{ image }}" alt="" loading="lazy" /></div>
+  {% endif %}
+  <div class="card__body">
+    {% if icon %}<span class="card__icon" aria-hidden="true">{{ icon | safe }}</span>{% endif %}
+    <h3 class="card__title">
+      {% if href %}<a class="card__stretched-link" href="{{ href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}
+    </h3>
+    {% if text %}<p class="card__text">{{ text | safe }}</p>{% endif %}
+    {% if href and linkText %}
+    <div class="card__footer"><span class="card__link">{{ linkText }} &rarr;</span></div>
+    {% endif %}
+  </div>
+</article>
+{% endmacro %}
