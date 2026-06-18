@@ -33,7 +33,7 @@ All under `wp-content/uploads/` in the mirror; copied to `src/assets/img/` unles
 - 2020/10/one-minute-mentoring-300x164.png -> one-minute-mentoring-logo.png
 - 2020/10/one-minute-mentoring-1024x559.png -> one-minute-mentoring-banner.png
 - 2025/01/iStock-72420416.jpg -> path-to-mentoring.jpg
-- 2020/09/DSC_8293-e1599855613442.jpg -> testimonial-sharon-frost-quote.jpg
+- 2020/09/DSC_8293-e1599855613442.jpg -> testimonial-jerrica.jpg
 - 2020/11/full-supply-sharon-frost.jpg -> testimonial-sharon-frost.jpg
 - 2021/01/ZahraBaileyFullPhoto-e1611109910667-400x400.jpg -> testimonial-zahra-bailey.jpg
 - 2025/03/The-Mentors-Launchpad-1024x732.jpg -> mentors-launchpad.jpg
