@@ -1,0 +1,25 @@
+{
+  "name": "Full Supply",
+  "tagline": "",
+  "url": "https://example.github.io/fullsupply-rebuild-1",
+  "nav": [
+    { "title": "Home", "url": "/" },
+    { "title": "About", "url": "/about/" },
+    { "title": "NOWA", "url": "/nowa/" },
+    { "title": "NOWA 5K", "url": "/nowa-5k-walk-run/" },
+    { "title": "Global Missions", "url": "/global-missions/" },
+    { "title": "One Minute Mentoring", "url": "/one-minute-mentoring/" },
+    { "title": "VLOG", "url": "/vlog/" },
+    { "title": "Team", "url": "/team/" },
+    { "title": "Ways to Give", "url": "/ways-to-give/" },
+    { "title": "Partner With Us", "url": "/partner-with-us/" }
+  ],
+  "brand": {
+    "purple": "#7c2c83",
+    "green": "#65bc7b",
+    "ink": "#212934",
+    "darkPlum": "#180016",
+    "offWhite": "#f6f6f6",
+    "tan": "#c1b299"
+  }
+}

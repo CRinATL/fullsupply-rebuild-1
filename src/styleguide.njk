@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Style Guide
+description: Brand tokens and components for the Full Supply rebuild.
+---
+
+<section class="container" style="padding-block: var(--space-6);">
+  <h1>Style Guide</h1>
+  <p>Living reference for the rebuild. Expanded by the design-system agent in Phase 1.</p>
+
+  <h2>Colors</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:var(--space-3);">
+    {% for name, value in site.brand %}
+      <div style="width:120px;">
+        <div style="height:64px; border-radius:var(--radius); background:{{ value }}; border:1px solid #0001;"></div>
+        <small>{{ name }}<br />{{ value }}</small>
+      </div>
+    {% endfor %}
+  </div>
+
+  <h2 style="margin-top:var(--space-6);">Typography</h2>
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <p>Body copy in Montserrat. The quick brown fox jumps over the lazy dog.</p>
+
+  <h2 style="margin-top:var(--space-6);">Buttons</h2>
+  <p>
+    <a class="btn" href="#">Primary</a>
+    <a class="btn btn--accent" href="#">Accent</a>
+  </p>
+</section>
