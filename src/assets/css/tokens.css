@@ -89,4 +89,11 @@
     rgba(24, 0, 22, 0.55) 0%,
     rgba(24, 0, 22, 0.75) 100%
   );
+  /* Light wash used on the home hero so the photo shows through with dark text.
+     Matches the original: white 85% fading to a faint tan. */
+  --overlay-light: linear-gradient(
+    116deg,
+    rgba(255, 255, 255, 0.88) 42%,
+    rgba(193, 178, 153, 0.12) 64%
+  );
 }

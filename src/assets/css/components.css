@@ -144,6 +144,19 @@
 }
 .hero--overlay-green .hero__overlay { background: var(--overlay-green); }
 .hero--overlay-dark .hero__overlay { background: var(--overlay-dark); }
+.hero--overlay-light .hero__overlay { background: var(--overlay-light); }
+
+/* Light hero: photo shows through, dark text, taller so the photo reads (home page). */
+.hero--overlay-light {
+  color: var(--color-text);
+  min-height: 78vh;
+  display: grid;
+  align-items: center;
+}
+.hero--overlay-light :is(h1, h2, h3) { color: var(--color-heading); }
+.hero--overlay-light .hero__subtitle { color: var(--color-ink); }
+/* Second heading line rendered in the brand green. */
+.hero__accent { display: block; color: var(--color-accent); }
 
 .hero__inner {
   position: relative;
@@ -307,6 +320,7 @@
   font-size: var(--fs-xl);
   margin-bottom: var(--space-2);
 }
+.card__icon svg { width: 28px; height: 28px; }
 .card__title { margin: 0; font-size: var(--fs-lg); }
 .card__text { margin: 0; color: var(--color-text); }
 .card__footer { margin-top: auto; padding-top: var(--space-3); }
@@ -372,21 +386,34 @@
 /* =========================================================
    Home page — page-specific layout helpers
    ========================================================= */
+/* "Do you often say…" prompts: a simple bulleted list with green markers,
+   matching the original (circle bullets, no quotes). */
 .home-says {
   list-style: none;
   padding: 0;
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-4);
   display: grid;
   gap: var(--space-3);
+  font-size: var(--fs-lg);
 }
 .home-says li {
-  background: var(--color-bg-alt);
-  border-left: 4px solid var(--color-accent);
-  border-radius: var(--radius);
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--fs-lg);
-  font-style: italic;
+  position: relative;
+  padding-left: var(--space-4);
 }
+.home-says li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.home-says__lead {
+  font-weight: var(--fw-semibold);
+}
+.home-says__lead .is-accent { color: var(--color-accent); }
 
 /* One Minute Mentoring sign-up band: logo + form, two columns. */
 .home-omm {
