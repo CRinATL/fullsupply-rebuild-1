@@ -44,9 +44,9 @@ We want to help bring out the mentor leader in you.
 
 ## "At Full Supply, you can expect…" section
 Three columns:
-- **Biblical Foundation**
-- **Practical Skills**
-- **Peer Mentoring**
+- **Biblical Foundation** — The Bible is our guide and we integrate Scripture throughout all aspects of mentoring. Our mentors are confident believers who know God's Word.
+- **Practical Skills** — Lead from your best self. Our unique framework includes Mentor Mastery Training and a 3-phase mentoring model that gives you the tools you need to mentor with confidence and ease.
+- **Peer Mentoring** — Be surrounded by Christ-centered peer mentors. Join an inspiring team of mentor-leaders who meet monthly to sharpen one another and lead by a higher standard to guide mentees well.
 
 ## One Minute Mentoring sign-up band
 Heading: **Sign-up for our One Minute Mentoring Vlog**
@@ -65,10 +65,12 @@ Image: `path-to-mentoring.jpg`
 - **Lead** — We will give you the tools and resources you need to lead your mentees to become equipped and confident in their faith and share their faith with others.
 
 ## Testimonials
-1. Image `testimonial-sharon-frost-quote.jpg` / `testimonial-sharon-frost.jpg`
+Heading: **What women are saying** (attributions are first names only in the original)
+1. **Jerrica** — image `testimonial-jerrica.jpg` (original `DSC_8293-…`)
    > Though there is a curriculum to follow, I felt like Full Supply met me where I was and gave me a framework to meet the needs of women looking for a mentor.
-2. > Full Supply puts other women in your Amen corner. Their reassurance and guidance equip women to be confident and strong in their faith.
-3. Image `testimonial-zahra-bailey.jpg`
+2. **Sharon** — image `testimonial-sharon-frost.jpg`
+   > Full Supply puts other women in your Amen corner. Their reassurance and guidance equip women to be confident and strong in their faith.
+3. **Zahra** — image `testimonial-zahra-bailey.jpg`
    > Full Supply is a place where you can be and become fully you. They help you become who you are destined to be.
 
 ## "Start With Our Online Training" / Registration (The Mentor's Launchpad)
@@ -92,9 +94,7 @@ When women go through the Full Supply training and mentoring programs, they beco
 Discover the difference mentoring makes…
 
 - CTA: **Schedule a call** -> https://sfkakxvwfuajznbsmu.10to8.com/
-
-## Background image used in CTA band
-`cta-band-bg.jpg`
+  (The original ends here — there is NO separate full-width CTA band. `cta-band-bg.jpg` is unused.)
 
 ## Notes
 - "Let's Be Friends" social block links to YouTube: https://www.youtube.com/user/ConnieMenser/featured

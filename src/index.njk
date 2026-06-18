@@ -27,7 +27,7 @@ description: Helping Faith-Driven Women to Grow in Faith and Lead with Confidenc
 
 {# ===================== DO YOU FIND YOURSELF SAYING… ===================== #}
 {% call section() %}
-  {{ sectionHead("Do you find yourself saying…", eyebrow="A heart to mentor") }}
+  {{ sectionHead("Do you find yourself saying…", eyebrow="Do you often say…") }}
   <ul class="home-says">
     <li>&ldquo;I would like training so I will know how to mentor effectively.&rdquo;</li>
     <li>&ldquo;I would like to be confident and build a solid foundation in my biblical knowledge.&rdquo;</li>
@@ -43,9 +43,9 @@ description: Helping Faith-Driven Women to Grow in Faith and Lead with Confidenc
 {% call section(tone="tan") %}
   {{ sectionHead("At Full Supply, you can expect…", center=true) }}
   {% call cardGrid(cols="3") %}
-    {{ card("Biblical Foundation", text="Grounded teaching that builds confidence in your scriptural knowledge.", feature=true) }}
-    {{ card("Practical Skills", text="Tools and frameworks to mentor women well and with intention.", feature=true) }}
-    {{ card("Peer Mentoring", text="A supportive community of women walking alongside you.", feature=true) }}
+    {{ card("Biblical Foundation", text="The Bible is our guide and we integrate Scripture throughout all aspects of mentoring. Our mentors are confident believers who know God&rsquo;s Word.", feature=true) }}
+    {{ card("Practical Skills", text="Lead from your best self. Our unique framework includes Mentor Mastery Training and a 3-phase mentoring model that gives you the tools you need to mentor with confidence and ease.", feature=true) }}
+    {{ card("Peer Mentoring", text="Be surrounded by Christ-centered peer mentors. Join an inspiring team of mentor-leaders who meet monthly to sharpen one another and lead by a higher standard to guide mentees well.", feature=true) }}
   {% endcall %}
 {% endcall %}
 
@@ -91,9 +91,9 @@ description: Helping Faith-Driven Women to Grow in Faith and Lead with Confidenc
     </div>
     <div class="home-path__steps">
       {% call cardGrid(cols="3") %}
-        {{ card("Grow", text="We train you on how to help your mentee establish a strong Biblical foundation and identify how Jesus is working in their life.", icon="1", feature=true) }}
-        {{ card("Build", text="We help you cement your mentee&rsquo;s foundation by building their relationship with Jesus and exploring ways to put their faith into action within their world.", icon="2", feature=true) }}
-        {{ card("Lead", text="We give you the tools and resources to lead your mentees to become equipped and confident in their faith and share it with others.", icon="3", feature=true) }}
+        {{ card("Grow", text="We train you on how to help your mentee establish a strong Biblical foundation and identifying how Jesus is working in their life.", icon="1", feature=true) }}
+        {{ card("Build", text="We will help you cement your mentee&rsquo;s foundation by building their relationship with Jesus and begin to explore ways to put their faith into action within their world.", icon="2", feature=true) }}
+        {{ card("Lead", text="We will give you the tools and resources you need to lead your mentees to become equipped and confident in their faith and share their faith with others.", icon="3", feature=true) }}
       {% endcall %}
     </div>
   </div>
@@ -104,16 +104,17 @@ description: Helping Faith-Driven Women to Grow in Faith and Lead with Confidenc
   {{ sectionHead("What women are saying", eyebrow="Testimonials", center=true) }}
   {% call cardGrid(cols="3") %}
     {{ card(
-      "Sharon Frost",
+      "Jerrica",
       text="&ldquo;Though there is a curriculum to follow, I felt like Full Supply met me where I was and gave me a framework to meet the needs of women looking for a mentor.&rdquo;",
+      image=("/assets/img/testimonial-jerrica.jpg" | url)
+    ) }}
+    {{ card(
+      "Sharon",
+      text="&ldquo;Full Supply puts other women in your Amen corner. Their reassurance and guidance equip women to be confident and strong in their faith.&rdquo;",
       image=("/assets/img/testimonial-sharon-frost.jpg" | url)
     ) }}
     {{ card(
-      "A Full Supply Mentor",
-      text="&ldquo;Full Supply puts other women in your Amen corner. Their reassurance and guidance equip women to be confident and strong in their faith.&rdquo;"
-    ) }}
-    {{ card(
-      "Zahra Bailey",
+      "Zahra",
       text="&ldquo;Full Supply is a place where you can be and become fully you. They help you become who you are destined to be.&rdquo;",
       image=("/assets/img/testimonial-zahra-bailey.jpg" | url)
     ) }}
@@ -150,13 +151,5 @@ description: Helping Faith-Driven Women to Grow in Faith and Lead with Confidenc
   <p>Our founder, Connie, launched Full Supply as a mentoring process designed exclusively for women. Using a strong Biblical foundation paired with a caring relational approach, our process guides women to grow, build and lead other women well.</p>
   <p>When women go through the Full Supply training and mentoring programs, they become confident believers ready to lead, mentor and shape future leaders for Christ.</p>
   <p>Discover the difference mentoring makes&hellip;</p>
-{% endcall %}
-
-{# ===================== CLOSING CTA BAND ===================== #}
-{% call ctaBand(
-  "Ready to bring out the mentor leader in you?",
-  text="Let&rsquo;s talk about how Full Supply can equip you to grow in faith and lead with confidence.",
-  bgImage=("/assets/img/cta-band-bg.jpg" | url)
-) %}
-  {{ button("Schedule a Call", scheduleUrl, variant="outline-light", size="lg", attrs='target="_blank" rel="noopener"') }}
+  <p>{{ button("Schedule a Call", scheduleUrl, variant="accent", size="lg", attrs='target="_blank" rel="noopener"') }}</p>
 {% endcall %}
