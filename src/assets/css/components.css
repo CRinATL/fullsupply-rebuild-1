@@ -153,10 +153,20 @@
   display: grid;
   align-items: center;
 }
-.hero--overlay-light :is(h1, h2, h3) { color: var(--color-heading); }
-.hero--overlay-light .hero__subtitle { color: var(--color-ink); }
-/* Second heading line rendered in the brand green. */
-.hero__accent { display: block; color: var(--color-accent); }
+/* Hero heading matches the original: Montserrat 600, 3px tracking,
+   purple first line, olive-green second line. */
+.hero--overlay-light .hero__title {
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 3px;
+  line-height: 1.3;
+}
+.hero--overlay-light .hero__subtitle {
+  color: #000;
+  font-weight: var(--fw-medium);
+  font-size: 1.375rem;
+}
+.hero__accent { display: block; color: var(--color-green-text); }
 
 .hero__inner {
   position: relative;
@@ -413,7 +423,7 @@
 .home-says__lead {
   font-weight: var(--fw-semibold);
 }
-.home-says__lead .is-accent { color: var(--color-accent); }
+.home-says__lead .is-accent { color: var(--color-green-text); }
 
 /* One Minute Mentoring sign-up band: logo + form, two columns. */
 .home-omm {
