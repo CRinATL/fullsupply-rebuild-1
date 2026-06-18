@@ -1,19 +1,49 @@
 {
   "name": "Full Supply",
   "tagline": "",
-  "url": "https://example.github.io/fullsupply-rebuild-1",
+  "url": "https://crinatl.github.io/fullsupply-rebuild-1",
+  "logo": "/assets/img/fullsupply-logo.png",
   "nav": [
     { "title": "Home", "url": "/" },
-    { "title": "About", "url": "/about/" },
-    { "title": "NOWA", "url": "/nowa/" },
-    { "title": "NOWA 5K", "url": "/nowa-5k-walk-run/" },
-    { "title": "Global Missions", "url": "/global-missions/" },
-    { "title": "One Minute Mentoring", "url": "/one-minute-mentoring/" },
-    { "title": "VLOG", "url": "/vlog/" },
-    { "title": "Team", "url": "/team/" },
-    { "title": "Ways to Give", "url": "/ways-to-give/" },
-    { "title": "Partner With Us", "url": "/partner-with-us/" }
+    {
+      "title": "About",
+      "url": "/about/",
+      "children": [
+        { "title": "The Team", "url": "/team/" },
+        { "title": "Partner With Us", "url": "/partner-with-us/" },
+        { "title": "Ways to Give", "url": "/ways-to-give/" }
+      ]
+    },
+    {
+      "title": "Mentoring",
+      "url": "#",
+      "children": [
+        { "title": "Become a Mentor", "url": "#" },
+        { "title": "Round Table of Faith", "url": "#" },
+        { "title": "Global Missions", "url": "/global-missions/" },
+        { "title": "Invite Connie to Speak", "url": "#" }
+      ]
+    },
+    {
+      "title": "VLOG",
+      "url": "/vlog/",
+      "children": [
+        { "title": "One Minute Mentoring", "url": "/one-minute-mentoring/" }
+      ]
+    },
+    {
+      "title": "Events",
+      "url": "#",
+      "children": [
+        { "title": "The Mentor's Launchpad", "url": "#" },
+        { "title": "NOWA Virtual 5k Walk & Fun Run", "url": "/nowa-5k-walk-run/" }
+      ]
+    }
   ],
+  "donate": {
+    "label": "Donate",
+    "url": "https://www.paypal.com/donate?hosted_button_id=6SL49EHP9KB9S&source=url"
+  },
   "brand": {
     "purple": "#7c2c83",
     "green": "#65bc7b",
