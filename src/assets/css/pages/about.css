@@ -32,7 +32,7 @@
 
 /* ---------- Our Foundation (green band) ---------- */
 .section--foundation {
-  background: linear-gradient(180deg, #8cc43d 0%, #abd170 100%);
+  background: #abd170; /* solid soft green, matching the original band */
 }
 .about-foundation {
   text-align: center;

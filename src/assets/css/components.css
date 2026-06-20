@@ -146,10 +146,10 @@
 .hero--overlay-dark .hero__overlay { background: var(--overlay-dark); }
 .hero--overlay-light .hero__overlay { background: var(--overlay-light); }
 
-/* Light hero: photo shows through, dark text, taller so the photo reads (home page). */
+/* Light hero: photo shows through, dark text. Height comes from content/padding
+   by default (interior pages); the home page overrides to full viewport. */
 .hero--overlay-light {
   color: var(--color-text);
-  min-height: 78vh;
   display: grid;
   align-items: center;
 }

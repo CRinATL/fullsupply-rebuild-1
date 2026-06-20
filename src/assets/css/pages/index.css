@@ -1,0 +1,10 @@
+/* Home page: full-viewport hero so Connie's photo dominates, matching the
+   original. Photo biased slightly up so the face reads at tall heights. */
+.hero--overlay-light {
+  min-height: 100vh;
+  background-position: center 28%;
+}
+
+@media (max-width: 700px) {
+  .hero--overlay-light { min-height: 88vh; }
+}
