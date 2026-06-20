@@ -14,28 +14,29 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-weight: var(--fw-normal);
-  font-size: var(--fs-base);
-  line-height: var(--lh-base);
-  color: var(--color-text);
+  font-weight: var(--fw-medium); /* original body weight is 500 */
+  font-size: var(--fs-base);     /* 18px */
+  line-height: var(--lh-base);   /* 1.75 */
+  color: var(--color-text);      /* #3f3842 */
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Typography --- */
+/* --- Typography — sizes/weights/colors matched to the original Avada theme.
+   h1–h3 purple, h4/h5 tan, all with 1px tracking; sizes clamp down on small
+   screens but hit the exact desktop values at full width. --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--color-heading);
-  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-heading);
   margin: 0 0 var(--space-3);
 }
 
-h1 { font-size: var(--fs-4xl); font-weight: var(--fw-black); }
-h2 { font-size: var(--fs-3xl); font-weight: var(--fw-bold); }
-h3 { font-size: var(--fs-xl); font-weight: var(--fw-semibold); }
-h4 { font-size: var(--fs-lg); font-weight: var(--fw-semibold); }
-h5 { font-size: var(--fs-base); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
-h6 { font-size: var(--fs-sm); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: var(--tracking-wide); }
+h1 { font-size: clamp(2.125rem, 4.6vw, 3rem);    font-weight: var(--fw-semibold); line-height: 1.08; color: var(--color-primary); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.375rem);   font-weight: var(--fw-semibold); line-height: 1.12; color: var(--color-primary); }
+h3 { font-size: clamp(1.625rem, 3.6vw, 2.25rem); font-weight: var(--fw-bold);     line-height: 1.3;  color: var(--color-primary); }
+h4 { font-size: clamp(1.375rem, 3vw, 1.875rem);  font-weight: var(--fw-semibold); line-height: 1.2;  color: var(--color-tan); }
+h5 { font-size: clamp(1.25rem, 2.8vw, 1.75rem);  font-weight: var(--fw-medium);   line-height: 1.2;  color: var(--color-tan); }
+h6 { font-size: 1.125rem; font-weight: var(--fw-normal); line-height: 1.2; color: var(--color-heading); }
 
 p { margin: 0 0 var(--space-3); }
 p:last-child { margin-bottom: 0; }
@@ -44,7 +45,7 @@ a {
   color: var(--color-link);
   text-decoration: none;
 }
-a:hover { text-decoration: underline; }
+a:hover { color: var(--color-link-hover); text-decoration: underline; }
 
 ul, ol { margin: 0 0 var(--space-3); padding-left: var(--space-4); }
 
@@ -291,35 +292,58 @@ code {
   .primary-nav__item.is-open > .sub-menu { display: block; }
 }
 
-/* --- Site footer --- */
+/* --- Site footer: purple multi-column, matching the original. --- */
 .site-footer {
-  background: var(--color-dark-plum);
-  color: var(--color-off-white);
+  background: var(--color-footer); /* #7c2c83 */
+  color: #fff;
   margin-top: var(--space-7);
+}
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
   padding-block: var(--space-6);
 }
-.site-footer a { color: var(--color-off-white); }
-.site-footer a:hover { color: var(--color-white); }
-.site-footer__brand {
-  font-weight: var(--fw-black);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
+.site-footer__col ul { list-style: none; margin: 0; padding: 0; }
+.site-footer__col li { margin-bottom: var(--space-2); }
+.site-footer a { color: #fff; text-transform: uppercase; font-size: var(--fs-sm); letter-spacing: 0.03em; }
+.site-footer a:hover { color: var(--color-tan); text-decoration: none; }
+.site-footer__heading {
+  color: #fff;
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-heading);
+  margin: var(--space-4) 0 var(--space-3);
+  text-transform: none;
 }
-.site-footer ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-4);
-  list-style: none;
-  margin: var(--space-3) 0;
-  padding: 0;
+.site-footer__social { display: flex; gap: var(--space-2); }
+.site-footer__social li { margin: 0; }
+.site-footer__social a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
 }
-.site-footer__copy { font-size: var(--fs-sm); opacity: 0.75; }
+.site-footer__social a:hover { background: #fff; color: var(--color-primary); }
+.site-footer__social svg { width: 17px; height: 17px; }
+.site-footer__contact { text-transform: none; }
+.site-footer__contact p { margin-bottom: var(--space-3); }
+.site-footer__contact a { text-transform: none; letter-spacing: 0; }
+.site-footer__label { color: var(--color-tan); }
 
-/* --- Responsive type --- */
-@media (max-width: 700px) {
-  :root {
-    --fs-4xl: 2.5rem;
-    --fs-3xl: 2rem;
-    --fs-2xl: 1.6rem;
-  }
+.site-footer__copyright {
+  background: var(--color-copyright); /* #612468 */
+  color: rgba(255, 255, 255, 0.85);
+  padding-block: var(--space-3);
+}
+.site-footer__copyright p { font-size: var(--fs-sm); margin: 0; }
+.site-footer__copyright a { text-transform: none; font-size: inherit; letter-spacing: 0; }
+
+@media (max-width: 860px) {
+  .site-footer__cols { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+}
+@media (max-width: 520px) {
+  .site-footer__cols { grid-template-columns: 1fr; }
 }
