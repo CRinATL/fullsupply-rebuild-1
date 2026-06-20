@@ -1,0 +1,104 @@
+---
+layout: base.njk
+title: Ways to Give - Full Supply
+description: Ways to Give
+pageCss: true
+---
+{% from "components/macros.njk" import button, section, sectionHead, hero %}
+
+{% set paypalUrl = "https://www.paypal.com/donate?hosted_button_id=6SL49EHP9KB9S&source=url" %}
+
+{# ===================== HERO ===================== #}
+{% call hero(
+  "Ways<br><span class='wtg-hero__accent'>to </span>Give",
+  bgImage=("/assets/img/ways-to-give-hero.jpg" | url),
+  overlay="light"
+) %}
+  {{ button("Donate", paypalUrl, attrs='target="_blank" rel="noopener"') }}
+{% endcall %}
+
+{# ===================== GIVING METHODS (tabs) ===================== #}
+{% call section(tone="alt") %}
+  <div class="wtg-tagline">
+    <h2>Your generosity trains leaders,<br />transforms lives and shapes eternity.</h2>
+  </div>
+
+  <div class="wtg-tabs" data-wtg-tabs>
+    <div class="wtg-tabs__nav" role="tablist" aria-label="Ways to give">
+      <button class="wtg-tab is-active" id="wtg-tab-in-kind" role="tab" aria-selected="true" aria-controls="wtg-panel-in-kind" type="button">
+        <span class="wtg-tab__icon" aria-hidden="true">&#127873;</span>In-Kind
+      </button>
+      <button class="wtg-tab" id="wtg-tab-mail" role="tab" aria-selected="false" tabindex="-1" aria-controls="wtg-panel-mail" type="button">
+        <span class="wtg-tab__icon" aria-hidden="true">&#9993;</span>Mail
+      </button>
+      <button class="wtg-tab" id="wtg-tab-phone" role="tab" aria-selected="false" tabindex="-1" aria-controls="wtg-panel-phone" type="button">
+        <span class="wtg-tab__icon" aria-hidden="true">&#128241;</span>Phone
+      </button>
+      <button class="wtg-tab" id="wtg-tab-amazon" role="tab" aria-selected="false" tabindex="-1" aria-controls="wtg-panel-amazon" type="button">
+        <span class="wtg-tab__icon" aria-hidden="true">&#128578;</span>Amazon
+      </button>
+      <button class="wtg-tab" id="wtg-tab-partner" role="tab" aria-selected="false" tabindex="-1" aria-controls="wtg-panel-partner" type="button">
+        <span class="wtg-tab__icon" aria-hidden="true">&#129309;</span>Partner
+      </button>
+    </div>
+
+    {# ----- In-Kind ----- #}
+    <div class="wtg-panel is-active" id="wtg-panel-in-kind" role="tabpanel" aria-labelledby="wtg-tab-in-kind" tabindex="0">
+      <div class="wtg-panel__media">
+        <img src="{{ '/assets/img/ways-to-give-in-kind.jpg' | url }}" alt="" loading="lazy" />
+      </div>
+      <div class="wtg-panel__body">
+        <p>Full Supply appreciates the non-cash donations through goods and services such as computers, office supplies, printing, postage, etc. We are also grateful to volunteers who offer time and/or talent from the daily operations of data entry and mail-outs to administration, marketing/social media, business planning, etc.</p>
+      </div>
+    </div>
+
+    {# ----- Mail ----- #}
+    <div class="wtg-panel" id="wtg-panel-mail" role="tabpanel" aria-labelledby="wtg-tab-mail" tabindex="0" hidden>
+      <div class="wtg-panel__media">
+        <img src="{{ '/assets/img/ways-to-give-mail.jpg' | url }}" alt="" loading="lazy" />
+      </div>
+      <div class="wtg-panel__body">
+        <p>Please make checks payable to Full Supply, Inc. and mail to:</p>
+        <p>
+          Full Supply, Inc.<br />
+          P.O. Box 1773<br />
+          Suwanee, GA 30024
+        </p>
+      </div>
+    </div>
+
+    {# ----- Phone ----- #}
+    <div class="wtg-panel" id="wtg-panel-phone" role="tabpanel" aria-labelledby="wtg-tab-phone" tabindex="0" hidden>
+      <div class="wtg-panel__media">
+        <img src="{{ '/assets/img/ways-to-give-phone.jpg' | url }}" alt="" loading="lazy" />
+      </div>
+      <div class="wtg-panel__body">
+        <p>If you would like to help further the work of Full Supply, you may contact us by phone at <a href="tel:470-552-2662">470-552-2662</a> or securely and conveniently donate online using Paypal or a major credit card.</p>
+      </div>
+    </div>
+
+    {# ----- Amazon (AmazonSmile — defunct) ----- #}
+    <div class="wtg-panel" id="wtg-panel-amazon" role="tabpanel" aria-labelledby="wtg-tab-amazon" tabindex="0" hidden>
+      <div class="wtg-panel__media">
+        <img src="{{ '/assets/img/ways-to-give-amazon-smile.png' | url }}" alt="" loading="lazy" />
+      </div>
+      <div class="wtg-panel__body">
+        <p>Shop at AmazonSmile and Amazon will donate 0.5% the price of your eligible Amazon Smile purchases to Full Supply, Inc. AmazonSmile is the same Amazon you know. Simply use your existing ID and password, select Full Supply, Inc., and make your order. It offers the same products, same prices, and the same Amazon Prime benefits. Start shopping at www.smile.amazon.com for another way to contribute to our cause.</p>
+        <!-- NOTE: AmazonSmile shut down 2023; flagged for removal -->
+        <p><span class="btn wtg-btn-disabled" role="button" aria-disabled="true">Shop Now</span></p>
+      </div>
+    </div>
+
+    {# ----- Partner ----- #}
+    <div class="wtg-panel" id="wtg-panel-partner" role="tabpanel" aria-labelledby="wtg-tab-partner" tabindex="0" hidden>
+      <div class="wtg-panel__media">
+        <img src="{{ '/assets/img/ways-to-give-partner.jpg' | url }}" alt="" loading="lazy" />
+      </div>
+      <div class="wtg-panel__body">
+        <p>If you would like to become a corporate partner, please contact us at <a href="tel:470-552-2662">470-552-2662</a></p>
+      </div>
+    </div>
+  </div>
+{% endcall %}
+
+<script src="{{ '/assets/js/ways-to-give.js' | url }}" defer></script>

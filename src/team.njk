@@ -1,0 +1,87 @@
+---
+layout: base.njk
+title: TEAM - Full Supply
+description: Meet the Full Supply Team
+pageCss: true
+---
+{% from "components/macros.njk" import button, section %}
+
+{# Inline SVG social icons, matching the original LinkedIn/YouTube links. #}
+{% set icoLinkedIn %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>{% endset %}
+{% set icoYouTube %}<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.07 0 12 0 12s0 3.93.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.8ZM9.6 15.57V8.43L15.82 12 9.6 15.57Z"/></svg>{% endset %}
+
+{# ===================== HERO ===================== #}
+<section class="team-hero" style="background-image:url('{{ '/assets/img/team-hero.jpg' | url }}')">
+  <div class="container">
+    <h1 class="team-hero__title">Meet the <br><span class="team-hero__accent">Full Supply</span> <br>Team</h1>
+  </div>
+</section>
+
+{# ===================== FOUNDER ===================== #}
+<div class="team-band"><div class="container"><h2 class="team-band__title">Meet Our Founder</h2></div></div>
+
+{% call section() %}
+  <div class="team-member team-member--reverse team-member--founder">
+    <div class="team-member__media">
+      <img src="{{ '/assets/img/team-connie-menser.jpg' | url }}" alt="Connie Menser" loading="lazy" />
+    </div>
+    <div class="team-member__body">
+      <h3 class="team-member__name">Connie Menser</h3>
+      <p class="team-member__role">Executive Director</p>
+      <p>Connie Menser is the Executive Director of Full Supply, a non-profit organization she founded in 2004. With a deep passion for Christian leadership development, Connie is committed to helping women grow spiritually and increase their kingdom impact. She has witnessed firsthand how intentional and strategic investment in individuals can transform leaders, strengthen relationships, and transform communities.</p>
+      <p>Under Connie&#8217;s leadership, Full Supply has impacted thousands of women across the U.S., Russia, Venezuela, and Kenya. By God&#8217;s grace, the ministry is now expanding its outreach to India, with women trained and mentored both in the U.S. and abroad, empowering leaders to make a lasting impact in their own countries.</p>
+      <p>Connie and her husband Charles have been married for 14 years and share a special bond with their Aussie-mix dog, Socks, who loves his walks and treats. They are active members of a local church, where they worship and serve together. In their downtime, they enjoy traveling, watching movies, dining out, and savoring hot chocolate.</p>
+      <div class="team-member__actions">
+        <ul class="team-social" aria-label="Connie Menser on social media">
+          <li><a href="https://www.linkedin.com/in/conniemenser/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">{{ icoLinkedIn | safe }}</a></li>
+          <li><a href="https://www.youtube.com/user/ConnieMenser/featured" target="_blank" rel="noopener noreferrer" aria-label="YouTube">{{ icoYouTube | safe }}</a></li>
+        </ul>
+        {{ button("INVITE CONNIE TO SPEAK", "#", variant="accent") }}
+      </div>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== BOARD OF DIRECTORS ===================== #}
+<div class="team-band"><div class="container"><h2 class="team-band__title team-band__title--center">Meet Our Board of Directors</h2></div></div>
+
+{% call section() %}
+  <div class="team-member">
+    <div class="team-member__media">
+      <img src="{{ '/assets/img/team-monica-coley.jpg' | url }}" alt="Monica Coley" loading="lazy" />
+    </div>
+    <div class="team-member__body">
+      <h3 class="team-member__name">Monica Coley</h3>
+      <p class="team-member__role">Board Chair</p>
+      <p>Monica is currently pursuing a Doctorate in Health Informatics and has dedicated the past sixteen years to her role at Cerner Corporation, where she serves as Director and Portfolio Leader.</p>
+      <p>Driven by a passion to empower women for Christ, Monica embraced the opportunity to serve as Board Chair for Full Supply, believing it to be a fulfillment of her calling to make a meaningful difference in the lives of others.</p>
+      <p>In addition to her professional and spiritual pursuits, Monica is an avid music lover and has even released her own album on iTunes! She also enjoys international travel, a passion she finds surprising given her upbringing as a military brat. Monica&#8217;s adventures have taken her to exciting destinations, including London for the 2012 Olympic Games, a sabbatical in Rome and Australia in 2014, and a memorable safari in South Africa in 2020.</p>
+    </div>
+  </div>
+
+  <div class="team-member team-member--reverse">
+    <div class="team-member__media">
+      <img src="{{ '/assets/img/team-sharon-frost.jpg' | url }}" alt="Sharon Frost" loading="lazy" />
+    </div>
+    <div class="team-member__body">
+      <h3 class="team-member__name">Sharon Frost</h3>
+      <p class="team-member__role">Treasurer &amp; Secretary</p>
+      <p>Sharon holds an MBA with a concentration in accounting and has served in various roles, including Controller for three non-profit organizations.</p>
+      <p>While she finds fulfillment in her career, Sharon&#8217;s love for God is the guiding force in her life. She is deeply passionate about helping others, especially women, discover their full potential and the unique purpose God has for them.</p>
+      <p>A family-oriented person, Sharon treasures time spent with her husband at their cabin in the North Carolina mountains. Some of her most cherished moments are surrounded by her children and grandchild. In her downtime, you&#8217;ll find Sharon relaxing with her Chihuahua and Chiweenie, enjoying a good book.</p>
+    </div>
+  </div>
+
+  <div class="team-member">
+    <div class="team-member__media">
+      <img src="{{ '/assets/img/team-bonnie-pope.jpg' | url }}" alt="Bonnie Pope" loading="lazy" />
+    </div>
+    <div class="team-member__body">
+      <h3 class="team-member__name">Bonnie Pope</h3>
+      <p class="team-member__role">Board Member</p>
+      <p>Bonnie joined our Board in 2020, driven by a deep desire to bring hope and healing to those facing spiritual and emotional challenges. Her passion is to guide individuals through life&#8217;s difficulties and support their journey toward wholeness.</p>
+      <p>She is an Ordained Minister of Pastoral Care, a Licensed Clinical Pastoral Counselor, and a Certified Temperament Counselor. In addition to her ministry work, Bonnie serves as a Personal Assistant to the president of a market research company.</p>
+      <p>Bonnie is also a devoted wife and mother to two children, ages 21 and 17, and values the balance of family and service in her life.</p>
+    </div>
+  </div>
+{% endcall %}

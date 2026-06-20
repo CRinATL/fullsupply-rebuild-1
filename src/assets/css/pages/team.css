@@ -1,0 +1,143 @@
+/* =========================================================
+   Team page
+   ========================================================= */
+
+/* ---- Hero: team-hands photo with a left white gradient,
+   purple/green/purple stacked heading (matches the original). ---- */
+.team-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+}
+.team-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(116deg, rgba(255, 255, 255, 0.85) 23%, rgba(6, 6, 7, 0) 57%);
+}
+.team-hero .container {
+  position: relative;
+  z-index: 1;
+}
+.team-hero__title {
+  color: var(--color-purple);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(2.5rem, 6vw, 4.0625rem);
+  line-height: 1.05;
+  padding-block: clamp(3rem, 11vw, 8rem);
+  margin: 0;
+}
+.team-hero__accent {
+  color: #8cc43d;
+}
+
+/* ---- Full-width green section bands ("Meet Our …"). ---- */
+.team-band {
+  background: #abd170;
+  padding-block: clamp(0.75rem, 2.5vw, 1.5rem);
+}
+.team-band__title {
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+/* ---- Member row: photo beside text, alternating sides. ---- */
+.team-member {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.team-member + .team-member {
+  margin-top: var(--space-7);
+}
+
+/* Reversed rows put the photo on the right. */
+.team-member--reverse .team-member__media {
+  order: 2;
+}
+
+.team-member__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.team-member__name {
+  color: var(--color-purple);
+  font-weight: var(--fw-semibold);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  margin-bottom: var(--space-1);
+}
+
+.team-member__role {
+  color: var(--color-tan);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-4);
+}
+
+.team-member__body p {
+  margin-bottom: var(--space-3);
+}
+
+/* Founder action row: social icons + invite button. */
+.team-member__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.team-social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.team-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  background: var(--color-purple-dark);
+  color: var(--color-off-white);
+  transition: background-color 0.2s ease;
+}
+.team-social a:hover {
+  background: var(--color-purple);
+}
+.team-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 768px) {
+  .team-member {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  /* Always show the photo above the text on small screens. */
+  .team-member--reverse .team-member__media {
+    order: 0;
+  }
+  .team-member__media {
+    max-width: 420px;
+  }
+}

@@ -1,0 +1,174 @@
+/* ============================================================
+   About page — page-specific styles
+   Pairs with src/about.njk (pageCss: true)
+   ============================================================ */
+
+/* Purple section headings, matching the original Avada/Fusion page. */
+.about-heading {
+  color: var(--color-purple);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  position: relative;
+  padding-bottom: var(--space-2);
+}
+.about-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--color-tan);
+}
+
+/* ---------- About Us intro ---------- */
+.about-intro {
+  max-width: 640px;
+}
+.about-intro p {
+  margin-bottom: var(--space-3);
+}
+
+/* ---------- Our Foundation (green band) ---------- */
+.section--foundation {
+  background: linear-gradient(180deg, #8cc43d 0%, #abd170 100%);
+}
+.about-foundation {
+  text-align: center;
+}
+.about-foundation__title {
+  color: var(--color-white);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-3);
+}
+.about-foundation__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.about-foundation p {
+  color: rgba(255, 255, 255, 0.92);
+  font-style: italic;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* ---------- Vision / Mission / Values ---------- */
+.about-vmv {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+.about-vmv__copy p {
+  margin-bottom: var(--space-4);
+}
+.about-values {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-values li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: var(--space-3);
+}
+.about-values li::before {
+  content: "\2713"; /* check mark, matching original list icons */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-green-text);
+  font-weight: 700;
+}
+.about-values__label {
+  color: var(--color-green-text);
+  font-weight: 600;
+}
+.about-vmv__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* ---------- Scripture blockquote ---------- */
+.about-scripture {
+  text-align: center;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.about-scripture p {
+  color: var(--color-tan);
+  font-style: italic;
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-2);
+}
+.about-scripture cite {
+  color: var(--color-green-text);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* ---------- Mentoring / Model / Multiply ---------- */
+.about-mmm {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.about-mmm__item .about-heading {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- Hi, I'm Connie Menser ---------- */
+.about-connie {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.about-connie__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+.about-connie__body p {
+  margin-bottom: var(--space-3);
+}
+.about-connie__sign {
+  color: var(--color-green-text);
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 0 !important;
+}
+.about-connie__role {
+  margin-top: 0;
+  margin-bottom: var(--space-4) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .about-vmv,
+  .about-connie {
+    grid-template-columns: 1fr;
+  }
+  .about-mmm {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .about-connie__media {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
