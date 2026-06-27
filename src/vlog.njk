@@ -60,30 +60,29 @@ pageCss: true
   </div>
 </section>
 
-{# ===================== YOUTUBE FEED (Connie Menser channel) ===================== #}
+{# ===================== YOUTUBE FEED (Connie Menser channel) =====================
+   Static thumbnails linking out to YouTube, with the site's purple play
+   overlay — matches the omm-video grid used on the other One Minute
+   Mentoring pages (salvation-secured, christs-imminent-return, etc.). #}
 {% call section() %}
-  <div class="vlog-feed">
+  <div class="omm-feed__head">
+    <span class="omm-feed__channel">Connie Menser</span>
+  </div>
+  <div class="omm-feed">
     {% for video in videos %}
-    <article class="vlog-card">
-      <div class="vlog-card__media">
-        <iframe
-          src="https://www.youtube.com/embed/{{ video.id }}"
-          title="{{ video.title }}"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-      <div class="vlog-card__body">
-        <h3 class="vlog-card__title">
-          <a href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener">{{ video.title }}</a>
-        </h3>
-        <p class="vlog-card__text">{{ video.text | safe }}</p>
+    <article class="omm-video">
+      <a class="omm-video__thumb" href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener" aria-label="Watch on YouTube: {{ video.title }}">
+        <img src="https://i.ytimg.com/vi/{{ video.id }}/hqdefault.jpg" alt="" loading="lazy" />
+        <span class="omm-video__play" aria-hidden="true"></span>
+      </a>
+      <div class="omm-video__body">
+        <h3 class="omm-video__title">{{ video.title }}</h3>
+        <p class="omm-video__desc">{{ video.text | safe }}</p>
       </div>
     </article>
     {% endfor %}
   </div>
-  <div class="vlog-feed__actions">
+  <div class="omm-feed__actions">
     {{ button("Subscribe", channelUrl, variant="accent", attrs='target="_blank" rel="noopener"') }}
   </div>
 {% endcall %}
