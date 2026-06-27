@@ -8,6 +8,12 @@ pageCss: true
 
 {% set paypalUrl = "https://www.paypal.com/donate?hosted_button_id=6SL49EHP9KB9S&source=url" %}
 
+{# Inline SVG icons for the closing steps (praying hands / hand-heart / users),
+   matching the original Font Awesome icons without the dependency. #}
+{% set icoPray %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V7c0-1.6.7-3.2 1.9-4.3l.4-.3c.5-.5 1.4-.3 1.6.4.4 1 .6 2.2.6 3.3 0 .9.5 1.7 1.3 2.1l.9.5c.8.5 1.3 1.4 1.3 2.3V16c0 1.7-1 3.2-2.6 3.8L12 21Z"/><path d="M12 21V7c0-1.6-.7-3.2-1.9-4.3l-.4-.3c-.5-.5-1.4-.3-1.6.4-.4 1-.6 2.2-.6 3.3 0 .9-.5 1.7-1.3 2.1l-.9.5C4.5 9.7 4 10.6 4 11.5V16c0 1.7 1 3.2 2.6 3.8L12 21Z"/></svg>{% endset %}
+{% set icoGive %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h2a2 2 0 0 0 2-2 2 2 0 0 0-2-2h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"/></svg>{% endset %}
+{% set icoTeam %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>{% endset %}
+
 {# ===================== HERO ===================== #}
 {% call hero(
   "Become a <span class='pwu-hero__accent'>People </span>Investor",
@@ -126,6 +132,7 @@ pageCss: true
   <div class="container container--narrow">
     <blockquote class="pwu-quote pwu-quote--light">
       <p>&ldquo;I look forward to writing my check to Full Supply every month because I know it&rsquo;s going to a good cause.&rdquo;</p>
+      <p class="pwu-quote__cite pwu-quote__cite--light">Janet</p>
     </blockquote>
   </div>
 </section>
@@ -138,12 +145,15 @@ pageCss: true
     </div>
     <div class="pwu-close__steps">
       <div class="pwu-close__step">
+        <span class="pwu-close__icon" aria-hidden="true">{{ icoPray | safe }}</span>
         <h3>Consider<br>Prayerfully</h3>
       </div>
       <div class="pwu-close__step">
+        <span class="pwu-close__icon" aria-hidden="true">{{ icoGive | safe }}</span>
         <h3>Give<br>Cheerfully</h3>
       </div>
       <div class="pwu-close__step">
+        <span class="pwu-close__icon" aria-hidden="true">{{ icoTeam | safe }}</span>
         <h3>Join Our<br>Investor Team</h3>
       </div>
     </div>
