@@ -13,7 +13,23 @@
 
 .nowa-heading--left { text-align: left; margin-left: 0; }
 
-/* ----- Hero (NOWA logo + heading) ----- */
+/* ----- Hero (NOWA logo + heading) -----
+   The default light overlay fades too early for this busy daylight
+   runners photo, leaving the purple heading low-contrast. Strengthen the
+   left wash and keep the heading within it so the text stays legible. */
+.hero--overlay-light .hero__overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(246, 246, 246, 0.95) 0%,
+    rgba(246, 246, 246, 0.9) 38%,
+    rgba(246, 246, 246, 0.55) 56%,
+    rgba(246, 246, 246, 0) 80%
+  );
+}
+.hero--overlay-light .hero__inner {
+  max-width: 640px;
+}
+
 .nowa-hero__logo {
   display: block;
   width: 170px;
@@ -21,7 +37,10 @@
   margin-bottom: var(--space-4);
 }
 
-.nowa-hero__text { display: block; }
+.nowa-hero__text {
+  display: block;
+  text-shadow: 0 1px 3px rgba(246, 246, 246, 0.7);
+}
 
 .nowa-donate__btn,
 .btn--donate,
