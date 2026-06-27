@@ -1,0 +1,294 @@
+/* ============================================================
+   Global Missions — page-scoped styles
+   ============================================================ */
+
+/* ----- Hero (full-height; globe photo bleeds in from the right) ----- */
+.hero--overlay-light {
+  min-height: 640px;
+  /* The 1200x800 globe photo sits at left-center on white; a fixed height
+     keeps the cover-crop predictable so the artwork stays in frame. */
+  background-position: center center;
+  background-size: cover;
+  align-items: center;
+}
+/* White wash on the left so the heading/intro stay legible while the globe
+   shows through on the right of the frame. */
+.hero--overlay-light .hero__overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.62) 26%,
+    rgba(255, 255, 255, 0) 52%
+  );
+}
+.hero--overlay-light .hero__inner {
+  max-width: 46%;
+}
+@media (max-width: 1024px) {
+  .hero--overlay-light { min-height: 520px; }
+  .hero--overlay-light .hero__inner { max-width: 60%; }
+}
+.gm-hero__intro {
+  color: var(--color-body-text);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  margin: 0;
+}
+.gm-hero__intro strong {
+  font-weight: var(--fw-bold);
+}
+@media (max-width: 1024px) {
+  .hero--overlay-light .hero__inner { max-width: 60%; }
+}
+@media (max-width: 782px) {
+  .hero--overlay-light {
+    min-height: 60vh;
+    background-position: center;
+  }
+  .hero--overlay-light .hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.86) 0%,
+      rgba(255, 255, 255, 0.5) 100%
+    );
+  }
+  .hero--overlay-light .hero__inner { max-width: 100%; }
+}
+
+/* ----- Designated project band (donate-green) ----- */
+.gm-band {
+  background: var(--color-donate);
+  padding-block: var(--space-5);
+}
+.gm-band p {
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+}
+
+/* ----- Country blocks (Russia / Kenya / India) ----- */
+.gm-country__title {
+  color: var(--color-purple);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-3);
+}
+.gm-country p {
+  margin: 0;
+}
+
+/* Kenya + India side by side */
+.gm-duo {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: var(--space-6);
+}
+@media (max-width: 800px) {
+  .gm-duo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----- Media rows ----- */
+.gm-media-wide {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--space-5);
+}
+.gm-media-wide--single {
+  grid-template-columns: 1fr;
+}
+.gm-media-wide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+.gm-media-wide--single img {
+  aspect-ratio: 3 / 1;
+  max-height: 460px;
+}
+
+.gm-media-pair {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr 1fr;
+  margin-top: var(--space-4);
+}
+.gm-media-pair img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+@media (max-width: 640px) {
+  .gm-media-wide,
+  .gm-media-pair {
+    grid-template-columns: 1fr;
+  }
+  .gm-media-wide--single img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ----- How It Works ----- */
+.gm-how {
+  max-width: 900px;
+  margin-inline: auto;
+}
+.gm-how__title {
+  color: var(--color-purple);
+  text-align: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-4);
+}
+.gm-how > p {
+  margin-bottom: var(--space-4);
+}
+
+.gm-tiers {
+  list-style: none;
+  margin: 0 0 var(--space-4);
+  padding: 0;
+}
+.gm-tiers li {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-tan);
+  line-height: 1.5;
+}
+.gm-tiers li:first-child {
+  border-top: 1px solid var(--color-tan);
+}
+.gm-tiers__amount {
+  display: inline-block;
+  min-width: 4.5rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-green-text);
+}
+
+.gm-donate {
+  text-align: center;
+  margin-top: var(--space-5);
+}
+.gm-donate .btn,
+.gm-donate .btn:link,
+.gm-donate .btn:visited {
+  background: var(--color-donate);
+  border-color: var(--color-donate);
+  color: var(--color-white);
+  font-size: var(--fs-base);
+  padding: var(--space-3) var(--space-7);
+  letter-spacing: 0.02em;
+}
+.gm-donate .btn:hover,
+.gm-donate .btn:focus-visible {
+  background: var(--color-purple);
+  border-color: var(--color-purple);
+  color: var(--color-white);
+}
+
+/* ----- FAQ accordion ----- */
+.gm-faq {
+  max-width: 900px;
+  margin-inline: auto;
+}
+.gm-faq__title {
+  color: var(--color-purple);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-4);
+}
+
+.gm-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.gm-acc-item {
+  background: var(--color-off-white);
+  border: 1px solid var(--color-tan);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.gm-acc-header {
+  margin: 0;
+  font-size: inherit;
+}
+.gm-acc-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-lg);
+  color: var(--color-purple);
+  line-height: 1.3;
+}
+.gm-acc-trigger:hover,
+.gm-acc-trigger[aria-expanded="true"] {
+  color: var(--color-tan);
+}
+.gm-acc-trigger:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: -2px;
+}
+
+.gm-acc-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--color-purple);
+}
+.gm-acc-icon::before,
+.gm-acc-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--color-white);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.gm-acc-icon::before {
+  width: 12px;
+  height: 2px;
+}
+.gm-acc-icon::after {
+  width: 2px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+.gm-acc-trigger[aria-expanded="true"] .gm-acc-icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+}
+
+.gm-acc-panel {
+  padding: 0 var(--space-4) var(--space-4);
+}
+.gm-acc-panel p {
+  margin: 0;
+  font-weight: var(--fw-medium);
+}
+.gm-acc-panel[hidden] {
+  display: none;
+}

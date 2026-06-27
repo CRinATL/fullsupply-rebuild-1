@@ -1,0 +1,124 @@
+---
+layout: base.njk
+title: GLOBAL MISSIONS - Full Supply
+description: >-
+  Global Missions. Full Supply has been blessed with an expanded outreach,
+  enabling us to meet the ministry needs and advance leadership development in
+  multiple countries. When you give to a designated project—such as those in
+  Russia, India, or Kenya—you directly support women
+pageCss: true
+---
+{% from "components/macros.njk" import button, section, hero %}
+
+{% set paypalUrl = "https://www.paypal.com/donate?hosted_button_id=6SL49EHP9KB9S&source=url" %}
+
+{# ===================== HERO ===================== #}
+{% call hero(
+  "Global Missions",
+  bgImage=("/assets/img/global-missions-hero.jpg" | url),
+  overlay="light"
+) %}
+  <p class="gm-hero__intro">Full Supply has been blessed with an <strong>expanded outreach</strong>, enabling us to meet the ministry needs and advance leadership development in multiple countries.</p>
+{% endcall %}
+
+{# ===================== DESIGNATED PROJECT BAND ===================== #}
+<section class="gm-band">
+  <div class="container">
+    <p>When you give to a designated project&mdash;such as those in Russia, India, or Kenya&mdash;you directly support women facing legal, economic, and social challenges. Your generous gift enables us to provide vital resources and create opportunities for women across Europe, Africa, and Asia to build a better life filled with purpose and hope. We are committed to using your donation specifically for the region you choose.</p>
+  </div>
+</section>
+
+{# ===================== RUSSIA ===================== #}
+{% call section(tone="alt") %}
+  <div class="gm-country">
+    <h2 class="gm-country__title">Russia</h2>
+    <p>In Stavropol and Pyatigorsk, Russia, women are eager to discover God&rsquo;s purpose for their lives. Key leaders in both cities are already mentoring others for Christ, but they long for our support to strengthen their faith. By traveling there, we can provide biblical resources and offer additional training to help them in their mission.</p>
+  </div>
+
+  <div class="gm-media-wide">
+    <img src="{{ '/assets/img/global-missions-1.jpg' | url }}" alt="Full Supply global missions in the field" loading="lazy" />
+    <img src="{{ '/assets/img/global-missions-2.jpg' | url }}" alt="Full Supply global missions in the field" loading="lazy" />
+  </div>
+
+  <div class="gm-media-pair">
+    <img src="{{ '/assets/img/global-missions-russia.jpg' | url }}" alt="Women in Russia" loading="lazy" />
+    <img src="{{ '/assets/img/global-missions-kenya.jpg' | url }}" alt="Women in Kenya" loading="lazy" />
+  </div>
+{% endcall %}
+
+{# ===================== KENYA + INDIA ===================== #}
+{% call section() %}
+  <div class="gm-duo">
+    <div class="gm-country">
+      <h2 class="gm-country__title">Kenya</h2>
+      <p>In Mumias, Kenya, women are eager to be valued, contribute to society, and find ways to become self-sufficient.</p>
+    </div>
+    <div class="gm-country">
+      <h2 class="gm-country__title">India</h2>
+      <p>In Visakhapatnam, India, women face disparities in gender, education, income, and more. They are seeking to strengthen their faith, while also finding income opportunities through teaching and self-employment.</p>
+    </div>
+  </div>
+
+  <div class="gm-media-wide gm-media-wide--single">
+    <img src="{{ '/assets/img/global-missions-india.jpg' | url }}" alt="Street scene in India" loading="lazy" />
+  </div>
+{% endcall %}
+
+{# ===================== HOW IT WORKS ===================== #}
+{% call section(tone="tan") %}
+  <div class="gm-how">
+    <h2 class="gm-how__title">How It Works</h2>
+    <p>A donation should be one that ignites a burden or a passion within you. Women in areas overseas need your help to send us to their countries to give them the confidence to live for Christ and the courage to fulfill their God-given purpose.</p>
+
+    <ul class="gm-tiers">
+      <li><span class="gm-tiers__amount">$25</span> helps bring in resources, such as bibles, books, training materials</li>
+      <li><span class="gm-tiers__amount">$50</span> provides one-on-one mentoring session for 3-5 women</li>
+      <li><span class="gm-tiers__amount">$100</span> provides advanced training session for 8-12 key leaders</li>
+      <li><span class="gm-tiers__amount">$250</span> provides a group mentoring session for 6-10 women</li>
+      <li><span class="gm-tiers__amount">$500</span> helps pay two interpreters for 8-10 day conferences</li>
+      <li><span class="gm-tiers__amount">$1000</span> secures the facility, food and resources for 200+ people for a 3-4 day conference to meet physical and spiritual needs; specifically, train 5-10 national leaders.</li>
+      <li><span class="gm-tiers__amount">$3000</span> sends a training team of 2, supplies resources/materials, facility and food, mentoring workshops, and a 5-10 day conference for 300+ people; specifically, train 10-15 national leaders.</li>
+    </ul>
+
+    <p>We need you to be directly involved in overseas missions, largely by sending us to go to different parts of the world. With your financial partnership, we carry with us the message of hope to the ends of the earth so that others might know the love of God. It also gives us the opportunity to meet the needs of those less fortunate than you or me.</p>
+
+    <div class="gm-donate">
+      {{ button("Donate", paypalUrl, attrs='target="_blank" rel="noopener"') }}
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== FAQ ===================== #}
+{% call section() %}
+  <div class="gm-faq">
+    <h2 class="gm-faq__title">Frequently Asked Questions</h2>
+
+    <div class="gm-accordion" data-gm-accordion>
+      <div class="gm-acc-item">
+        <h3 class="gm-acc-header">
+          <button type="button" class="gm-acc-trigger" id="gm-acc-trigger-1" aria-expanded="false" aria-controls="gm-acc-panel-1">
+            <span class="gm-acc-icon" aria-hidden="true"></span>
+            <span class="gm-acc-label">How will my donation be spent?</span>
+          </button>
+        </h3>
+        <div class="gm-acc-panel" id="gm-acc-panel-1" role="region" aria-labelledby="gm-acc-trigger-1" hidden>
+          <p>At Full Supply, we are committed to use the funds graciously given to us to transform the lives of everyone we come in contact with overseas through one-on-one training, small group mentoring, conferences and resources.</p>
+        </div>
+      </div>
+
+      <div class="gm-acc-item">
+        <h3 class="gm-acc-header">
+          <button type="button" class="gm-acc-trigger" id="gm-acc-trigger-2" aria-expanded="false" aria-controls="gm-acc-panel-2">
+            <span class="gm-acc-icon" aria-hidden="true"></span>
+            <span class="gm-acc-label">How often does Full Supply travel to other countries?</span>
+          </button>
+        </h3>
+        <div class="gm-acc-panel" id="gm-acc-panel-2" role="region" aria-labelledby="gm-acc-trigger-2" hidden>
+          <p>We strive to travel to each country on an annual basis for consistency and accountability. This is not always possible since funds are not fully raised to support these mission opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endcall %}
+
+<script src="{{ '/assets/js/global-missions.js' | url }}" defer></script>

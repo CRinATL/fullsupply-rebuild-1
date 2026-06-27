@@ -1,0 +1,256 @@
+/* ============================================================
+   NOWA — No One Walks Alone (page-scoped styles)
+   ============================================================ */
+
+/* Donate buttons on this page use the brighter donate-green. */
+.hero__actions .btn--accent,
+.nowa-close__body .btn--accent {
+  background: var(--color-donate);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+.hero__actions .btn--accent:hover,
+.hero__actions .btn--accent:focus-visible,
+.nowa-close__body .btn--accent:hover,
+.nowa-close__body .btn--accent:focus-visible {
+  background: var(--color-purple);
+}
+
+/* ---------- Hero ---------- */
+.nowa-hero__logo {
+  display: block;
+  width: 220px;
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto var(--space-4);
+}
+.nowa-hero__heading {
+  display: block;
+}
+
+/* ---------- Intro / Mission ---------- */
+.nowa-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.nowa-intro__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: block;
+}
+.nowa-intro__body h2 {
+  margin-top: 0;
+}
+
+/* ---------- Campaign ask ---------- */
+.nowa-ask {
+  text-align: center;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+.nowa-ask h2 {
+  margin: 0 0 var(--space-2);
+}
+.nowa-ask__accent {
+  color: var(--color-green-text);
+}
+.nowa-ask__prompt {
+  margin-top: var(--space-4);
+}
+
+/* ---------- Stats: "Your Contribution Helps" ---------- */
+.nowa-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+.nowa-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-5) var(--space-3);
+  border: 3px solid var(--color-soft-green, #abd170);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  justify-content: center;
+  background: var(--color-white);
+}
+.nowa-stat__figure {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-black);
+  color: var(--color-green-text);
+  line-height: 1.1;
+}
+.nowa-stat__label {
+  margin-top: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-body-text);
+}
+
+/* ---------- Testimonial quote blocks ---------- */
+.nowa-quote {
+  max-width: var(--container-narrow);
+  margin: var(--space-7) auto 0;
+  text-align: center;
+}
+.nowa-quote__photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  margin-bottom: var(--space-4);
+}
+.nowa-quote blockquote {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.nowa-quote blockquote p {
+  font-size: var(--fs-lg);
+  font-style: italic;
+  color: var(--color-purple);
+  line-height: var(--lh-snug);
+}
+.nowa-quote figcaption {
+  margin-top: var(--space-3);
+  font-weight: var(--fw-bold);
+  color: var(--color-green-text);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ---------- Fundraising goal badge ---------- */
+.nowa-goal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--color-tan, #c1b299);
+  border-radius: var(--radius);
+}
+.nowa-goal__figure {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-black);
+  color: var(--color-tan, #c1b299);
+  line-height: 1.1;
+}
+.nowa-goal__label {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--color-body-text);
+}
+
+/* ---------- 2021 Income & Expenses ---------- */
+.nowa-budget__intro {
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+  text-align: center;
+}
+.nowa-budget {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+
+/* ---------- Income / Expenses donut charts ---------- */
+.budget-donut {
+  margin: 0;
+  text-align: center;
+}
+.budget-donut__ring {
+  width: 200px;
+  height: 200px;
+  max-width: 100%;
+  margin: 0 auto var(--space-3);
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(circle, transparent 52%, #000 53%);
+          mask: radial-gradient(circle, transparent 52%, #000 53%);
+}
+.budget-donut__title {
+  color: var(--color-purple);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-3);
+}
+.budget-donut__legend {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+}
+.budget-donut__legend li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-sm);
+  color: var(--color-body-text);
+}
+.budget-donut__legend b {
+  margin-left: auto;
+  padding-left: var(--space-3);
+  color: var(--color-purple);
+}
+.budget-donut__swatch {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+  .nowa-budget {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Closing CTA ---------- */
+.nowa-close {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+.nowa-close__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  display: block;
+}
+.nowa-close__body h2 {
+  margin-top: 0;
+}
+.nowa-close__body .btn {
+  margin-top: var(--space-3);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .nowa-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .nowa-intro,
+  .nowa-close {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .nowa-stats {
+    grid-template-columns: 1fr;
+  }
+}

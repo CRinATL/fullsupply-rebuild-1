@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: Christ's Imminent Return - Full Supply
+description: >-
+  We have marching orders to be ready for Christ’s return. In these challenging
+  times, it can give us the idea that Christ’s return is near. If Christ returns
+  tomorrow, are you ready? If he returns in days or within our lifetime, how will
+  you be prepared?
+pageCss: true
+permalink: /christs-imminent-return/
+---
+{% from "components/macros.njk" import button, section, sectionHead %}
+
+{# Shared "One Minute Mentoring" feed — same captured videos as the VLOG /
+   One Minute Mentoring pages. Verbatim from content/christs-imminent-return.md,
+   including preserved source typos ("uncertainly", "we trains leaders", "I I realize"). #}
+{% set videos = [
+  {
+    "id": "VQViIwf4Sp8",
+    "title": "Salvation Secured",
+    "desc": "It's an uneasy place to be in when you are uncertain where you stand regarding your salvation in Christ. Let's take a look at 1 John 5:11-13 to eliminate that uncertainly and give you the assurance that you can know your salvation is secure. ..."
+  },
+  {
+    "id": "al6ZXU-Mcm0",
+    "title": "Christ's Imminent Return",
+    "desc": "We have marching orders to be ready for Christ's return. In these challenging times, it can give us the idea that Christ's return is near. If Christ returns tomorrow, are you ready? If he returns in days or within our lifetime, how will you be prepared? ..."
+  },
+  {
+    "id": "G2alW1tpp7A",
+    "title": "No One Walks Alone (NOWA)",
+    "desc": "If you could be a part of something bigger than yourself, would you want to be a part of it? At Full Supply we trains leaders who transform lives. We envision a day when Christian Women Mentors will be easily accessible to every woman who wants one, worldwide. Discover how you can be a part of changing lives. ..."
+  },
+  {
+    "id": "9lye7rRoz60",
+    "title": "God Sees You",
+    "desc": "There are moments in our lives when we want to make sense of a wrong or an injustice that’s been done to us. Perhaps it has left you feeling forgotten, abandoned or unloved. What do you do? Where do you go? ..."
+  },
+  {
+    "id": "qGx-H7oxI0g",
+    "title": "Go Make Disciples",
+    "desc": "Wherever we go as believers, we have the opportunity to share Christ with everyone - everywhere. Are you responding to the call to make disciples? ..."
+  },
+  {
+    "id": "3H_u4ezUNWo",
+    "title": "Are You FAT?",
+    "desc": "If someone asked you if you were F.A.T., you'd be appalled. I I realize this is an unlikely acronym, but it describes the type of people you want to mentor/disciple and the kind of person you want to be as a spiritual leader. ..."
+  }
+] %}
+
+{# ===================== TOP SIGN-UP BAND ===================== #}
+{% call section(tone="", id="top") %}
+  <div class="omm-band" style="background-image:linear-gradient(229deg, rgba(193,178,153,0.41) 47%, rgba(246,246,246,0.85) 61%), url('{{ '/assets/img/vlog-hero-connie.jpg' | url }}')">
+    <div class="omm-band__inner">
+      <img class="omm-band__logo" src="{{ '/assets/img/one-minute-mentoring-logo.png' | url }}" alt="One Minute Mentoring" />
+      <p class="omm-band__text">You are invited to sign up for our FREE weekly video message that delivers encouragement, insight and actionable takeaways directly to your email.</p>
+      <p>{{ button("Sign me up!", "#omm-signup") }}</p>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== FEATURED VIDEO + INTRO ===================== #}
+{% call section() %}
+  {{ sectionHead("Christ’s Imminent Return", center=true) }}
+  <div class="omm-featured">
+    <div class="omm-embed">
+      <iframe
+        src="https://www.youtube.com/embed/al6ZXU-Mcm0"
+        title="Christ’s Imminent Return"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p class="omm-featured__text">We have marching orders to be ready for Christ’s return. In these challenging times, it can give us the idea that Christ’s return is near. If Christ returns tomorrow, are you ready? If he returns in days or within our lifetime, how will you be prepared?</p>
+  </div>
+{% endcall %}
+
+{# ===================== ONE MINUTE MENTORING FEED (static grid) ===================== #}
+{% call section(tone="alt") %}
+  <div class="omm-feed__head">
+    <span class="omm-feed__channel">One Minute Mentoring</span>
+  </div>
+  <div class="omm-feed">
+    {% for v in videos %}
+    <article class="omm-video">
+      <a class="omm-video__thumb" href="https://www.youtube.com/watch?v={{ v.id }}" target="_blank" rel="noopener" aria-label="Watch on YouTube: {{ v.title }}">
+        <img src="https://i.ytimg.com/vi/{{ v.id }}/hqdefault.jpg" alt="" loading="lazy" />
+        <span class="omm-video__play" aria-hidden="true"></span>
+      </a>
+      <div class="omm-video__body">
+        <h3 class="omm-video__title">{{ v.title }}</h3>
+        <p class="omm-video__desc">{{ v.desc }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <div class="omm-feed__actions">
+    {# "Load More..." paged the live YouTube feed in the original; static mirror has no further pages. #}
+    {{ button("Load More...", "javascript:void(0);") }}
+  </div>
+{% endcall %}
+
+{# ===================== BOTTOM SIGN-UP FORM ===================== #}
+{% call section(tone="tan", id="omm-signup") %}
+  <div class="omm-signup">
+    <div class="omm-signup__media">
+      <img src="{{ '/assets/img/one-minute-mentoring-banner.png' | url }}" alt="One Minute Mentoring" loading="lazy" />
+    </div>
+    <div class="omm-signup__body">
+      <h2>Sign-up for One Minute Mentoring!</h2>
+      <p>You are invited to sign up for our FREE weekly video message that delivers encouragement, insight and actionable takeaways directly to your email.</p>
+
+      <!-- TODO(forms): wire to Formspree endpoint -->
+      <form class="home-signup" action="#" method="post" aria-label="One Minute Mentoring sign-up">
+        <div class="home-signup__field">
+          <label for="omm-first">First Name</label>
+          <input type="text" id="omm-first" name="first_name" autocomplete="given-name" required />
+        </div>
+        <div class="home-signup__field">
+          <label for="omm-last">Last Name</label>
+          <input type="text" id="omm-last" name="last_name" autocomplete="family-name" required />
+        </div>
+        <div class="home-signup__field">
+          <label for="omm-email">Email</label>
+          <input type="email" id="omm-email" name="email" autocomplete="email" required />
+        </div>
+        <div class="home-signup__actions">
+          <button class="btn btn--accent" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endcall %}

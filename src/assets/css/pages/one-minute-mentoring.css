@@ -1,0 +1,163 @@
+/* =========================================================
+   One Minute Mentoring — page-scoped styles
+   ========================================================= */
+
+/* ---- Top sign-up band (background image + logo + invite + CTA) ---- */
+.omm-band {
+  background-size: cover;
+  background-position: left center;
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem);
+}
+.omm-band__inner {
+  max-width: 30rem;
+}
+.omm-band__logo {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: var(--space-4);
+}
+.omm-band__text {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-4);
+}
+
+/* ---- Featured video + intro ---- */
+.omm-featured {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.omm-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto var(--space-5);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: #000;
+}
+.omm-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.omm-featured__text {
+  font-size: var(--fs-lg);
+}
+
+/* ---- YouTube feed (static grid) ---- */
+.omm-feed__head {
+  text-align: center;
+  margin-bottom: var(--space-5);
+}
+.omm-feed__channel {
+  display: inline-block;
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+.omm-feed {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+.omm-video {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+.omm-video__thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+.omm-video__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.omm-video__thumb:hover img {
+  transform: scale(1.05);
+}
+.omm-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56px;
+  height: 56px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(124, 44, 131, 0.85);
+}
+.omm-video__play::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 11px 0 11px 18px;
+  border-color: transparent transparent transparent #fff;
+}
+.omm-video__body {
+  padding: var(--space-4);
+}
+.omm-video__title {
+  font-size: var(--fs-md);
+  margin: 0 0 var(--space-2);
+  color: var(--color-green-text);
+}
+.omm-video__desc {
+  font-size: var(--fs-sm);
+  margin: 0;
+  color: var(--color-text);
+}
+.omm-feed__actions {
+  text-align: center;
+  margin-top: var(--space-6);
+}
+
+/* ---- Bottom sign-up form (banner image beside form) ---- */
+.omm-signup {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-6);
+  align-items: center;
+}
+.omm-signup__media {
+  text-align: center;
+}
+.omm-signup__media img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .omm-feed {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 860px) {
+  .omm-signup {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .omm-feed {
+    grid-template-columns: 1fr;
+  }
+}

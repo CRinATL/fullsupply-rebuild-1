@@ -1,0 +1,122 @@
+---
+layout: base.njk
+title: VLOG - Full Supply
+description: >-
+  You are invited to sign up for our FREE weekly video message that delivers
+  encouragement, insight and actionable takeaways directly to your email. Sign
+  me up!
+pageCss: true
+---
+{% from "components/macros.njk" import button, section %}
+
+{% set channelUrl = "https://www.youtube.com/channel/UC81odK7ATGoVkg5eTbyRUAg/" %}
+
+{# Captured VLOG videos at time of mirror — title, id and verbatim description.
+   Descriptions reproduced WORD-FOR-WORD incl. preserved source typos. #}
+{% set videos = [
+  {
+    "title": "Salvation Secured",
+    "id": "VQViIwf4Sp8",
+    "text": "It's an uneasy place to be in when you are uncertain where you stand regarding your salvation in Christ. Let's take a look at 1 John 5:11-13 to eliminate that uncertainly and give you the assurance that you can know your salvation is secure. ..."
+  },
+  {
+    "title": "Christ's Imminent Return",
+    "id": "al6ZXU-Mcm0",
+    "text": "We have marching orders to be ready for Christ's return. In these challenging times, it can give us the idea that Christ's return is near. If Christ returns tomorrow, are you ready? If he returns in days or within our lifetime, how will you be prepared? ..."
+  },
+  {
+    "title": "No One Walks Alone (NOWA)",
+    "id": "G2alW1tpp7A",
+    "text": "If you could be a part of something bigger than yourself, would you want to be a part of it? At Full Supply we trains leaders who transform lives. We envision a day when Christian Women Mentors will be easily accessible to every woman who wants one, worldwide. Discover how you can be a part of changing lives. ..."
+  },
+  {
+    "title": "God Sees You",
+    "id": "9lye7rRoz60",
+    "text": "There are moments in our lives when we want to make sense of a wrong or an injustice that&rsquo;s been done to us. Perhaps it has left you feeling forgotten, abandoned or unloved. What do you do? Where do you go? ..."
+  },
+  {
+    "title": "Go Make Disciples",
+    "id": "qGx-H7oxI0g",
+    "text": "Wherever we go as believers, we have the opportunity to share Christ with everyone - everywhere. Are you responding to the call to make disciples? ..."
+  },
+  {
+    "title": "Are You FAT?",
+    "id": "3H_u4ezUNWo",
+    "text": "If someone asked you if you were F.A.T., you'd be appalled. I I realize this is an unlikely acronym, but it describes the type of people you want to mentor/disciple and the kind of person you want to be as a spiritual leader. ..."
+  }
+] %}
+
+{# ===================== HERO / SIGN-UP BAND ===================== #}
+<section class="vlog-hero" style="background-image:url('{{ '/assets/img/vlog-hero-connie.jpg' | url }}')">
+  <div class="vlog-hero__overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="vlog-hero__inner">
+      <div class="vlog-hero__media">
+        <img src="{{ '/assets/img/one-minute-mentoring-logo.png' | url }}" alt="One Minute Mentoring" />
+      </div>
+      <p class="vlog-hero__lead">You are invited to <b>sign up</b> for our <b>FREE weekly video message</b> that delivers encouragement, insight and actionable takeaways directly to your email.</p>
+      {{ button("Sign me up!", "#vlog-signup", variant="accent") }}
+    </div>
+  </div>
+</section>
+
+{# ===================== YOUTUBE FEED (Connie Menser channel) ===================== #}
+{% call section() %}
+  <div class="vlog-feed">
+    {% for video in videos %}
+    <article class="vlog-card">
+      <div class="vlog-card__media">
+        <iframe
+          src="https://www.youtube.com/embed/{{ video.id }}"
+          title="{{ video.title }}"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <div class="vlog-card__body">
+        <h3 class="vlog-card__title">
+          <a href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener">{{ video.title }}</a>
+        </h3>
+        <p class="vlog-card__text">{{ video.text | safe }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <div class="vlog-feed__actions">
+    {{ button("Subscribe", channelUrl, variant="accent", attrs='target="_blank" rel="noopener"') }}
+  </div>
+{% endcall %}
+
+{# ===================== SIGN-UP FOR ONE MINUTE MENTORING! ===================== #}
+{% call section(tone="primary", id="vlog-signup") %}
+  <div class="home-omm">
+    <div class="home-omm__media">
+      <img src="{{ '/assets/img/one-minute-mentoring-banner.png' | url }}" alt="One Minute Mentoring" loading="lazy" />
+    </div>
+    <div class="home-omm__body">
+      <span class="section__eyebrow">Sign-up for our One Minute Mentoring Vlog</span>
+      <h2>Sign-up for One Minute Mentoring!</h2>
+      <p>You are invited to sign up for our FREE weekly video message that delivers encouragement, insight and actionable takeaways directly to your email.</p>
+
+      <!-- TODO(forms): wire to Formspree endpoint -->
+      <form class="home-signup" action="#" method="post" aria-label="One Minute Mentoring sign-up">
+        <div class="home-signup__field">
+          <label for="omm-first">First Name</label>
+          <input type="text" id="omm-first" name="first_name" autocomplete="given-name" required />
+        </div>
+        <div class="home-signup__field">
+          <label for="omm-last">Last Name</label>
+          <input type="text" id="omm-last" name="last_name" autocomplete="family-name" required />
+        </div>
+        <div class="home-signup__field">
+          <label for="omm-email">Email</label>
+          <input type="email" id="omm-email" name="email" autocomplete="email" required />
+        </div>
+        <div class="home-signup__actions">
+          <button class="btn btn--accent" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endcall %}

@@ -1,0 +1,248 @@
+---
+layout: base.njk
+title: NOWA Virtual 5k Walk & Fun Run - Full Supply
+description: >-
+  Your Race Participation, Donation or Sponsorship Can Change a Life. No One Has
+  to Walk Alone. Our 5th annual Virtual 5k “No One Walks Alone,” also known as
+  NOWA, is something we strongly believe.
+pageCss: true
+---
+{% from "components/macros.njk" import button, section, sectionHead, hero, ctaBand, card, cardGrid %}
+
+{% set paypalUrl = "https://www.paypal.com/donate?hosted_button_id=YM6KWR6J5EM2L&source=url" %}
+{% set registerUrl = "https://runsignup.com/Race/Register/?raceId=124629" %}
+{% set scheduleUrl = "https://sfkakxvwfuajznbsmu.10to8.com/" %}
+{% set sponsorPacketUrl = "/assets/docs/nowa-5k-sponsor-levels-benefits-packet-2026.pdf" %}
+
+{# ===================== HERO ===================== #}
+{% set heroTitle %}<img class="nowa-hero__logo" src="{{ '/assets/img/nowa-logo.png' | url }}" alt="No One Walks Alone" /><span class="nowa-hero__text">Your Race Participation, Donation or Sponsorship Can Change a Life.</span>{% endset %}
+{% call hero(
+  heroTitle,
+  bgImage=("/assets/img/nowa-5k-hero.jpg" | url),
+  overlay="light"
+) %}
+  {{ button("Donate", paypalUrl, variant="donate", attrs='target="_blank" rel="noopener"') }}
+{% endcall %}
+
+{# ===================== NO ONE HAS TO WALK ALONE ===================== #}
+{% call section() %}
+  <h2 class="nowa-heading">No One Has to Walk Alone</h2>
+  <div class="nowa-intro">
+    <div class="nowa-intro__body">
+      <p>Our 5th annual Virtual 5k &ldquo;No One Walks Alone,&rdquo; also known as NOWA, is something we strongly believe. Many Christian women are seeking a mentor, but they do not know who to ask or where to find one. That&rsquo;s why Full Supply trains leaders who transforms lives for Christ in the U.S. Russia, India and Africa.</p>
+    </div>
+    <div class="nowa-intro__media">
+      <img src="{{ '/assets/img/nowa-nadia-natasha-arthur.jpg' | url }}" alt="" loading="lazy" />
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== JOIN OUR 5TH ANNUAL VIRTUAL 5K ===================== #}
+{% call section(size="tight") %}
+  <h2 class="nowa-join__title">Join our 5th Annual Virtual<br />5k Walk/Fun Run</h2>
+{% endcall %}
+
+{# ===================== WALK OR RUN WITH US ===================== #}
+{% call section(tone="alt") %}
+  <div class="nowa-walkrun">
+    <div class="nowa-walkrun__media">
+      <img src="{{ '/assets/img/nowa-5k-runners.jpg' | url }}" alt="" loading="lazy" />
+    </div>
+    <div class="nowa-walkrun__body">
+      <h2 class="nowa-heading nowa-heading--left">Walk or Run with us to Transform Lives</h2>
+      <p>Take your Virtual 5k Walk or Fun Run in your neighborhood, at a local park or on your treadmill. You choose when &amp; where you walk between October 2nd starting at 6:00 a.m. and October 18th ending at 11:59 p.m.</p>
+      <p>Track your time on an app of your choice. Then be sure to log it on the event website on or before October 20th by 11:59 p.m.</p>
+      <p>{{ button("Register for 5k", registerUrl, variant="accent", attrs='target="_blank" rel="noopener"') }}</p>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== OUR CURRENT SPONSORS ===================== #}
+{% call section(tone="alt") %}
+  {{ sectionHead("Our Current Sponsors", center=true) }}
+  <div class="nowa-sponsors">
+    <div class="nowa-sponsors__logo"><img src="{{ '/assets/img/sponsor-maxwell-house.png' | url }}" alt="Maxwell House" loading="lazy" /></div>
+    <div class="nowa-sponsors__logo"><img src="{{ '/assets/img/sponsor-mellow-mushroom.png' | url }}" alt="Mellow Mushroom" loading="lazy" /></div>
+    <div class="nowa-sponsors__logo"><img src="{{ '/assets/img/sponsor-kfc.png' | url }}" alt="KFC" loading="lazy" /></div>
+  </div>
+{% endcall %}
+
+{# ===================== WE ARE SEEKING MORE SPONSORS ===================== #}
+<section class="nowa-band" style="background-image:url('{{ '/assets/img/nowa-5k-walk-run-band.jpg' | url }}')">
+  <div class="nowa-band__overlay" aria-hidden="true"></div>
+  <div class="container">
+    <h2 class="nowa-band__title">We Are Seeking MORE Sponsors to Join Our Cause</h2>
+  </div>
+</section>
+
+{# ===================== BE A WORLD-CHANGER ===================== #}
+{% call section() %}
+  <div class="nowa-worldchanger">
+    <h2 class="nowa-heading">Be a World-Changer</h2>
+    <ul class="nowa-list">
+      <li>Empower women globally by providing them with life-changing mentors.</li>
+      <li>Invest in exemplary Mentor leaders who volunteer in their communities, churches and local non-profits, and also become successful business owners.</li>
+      <li>Foster a network of strong, supportive women who inspire and lift each other.</li>
+      <li>Transform the world by changing a life.</li>
+    </ul>
+  </div>
+
+  <div class="nowa-tiers">
+    <div class="nowa-tier nowa-tier--goal">
+      <span class="nowa-tier__amount">5k Goal</span>
+      <span class="nowa-tier__label">5k Fundraising Goal by October 18, 2026</span>
+    </div>
+    <div class="nowa-tier">
+      <span class="nowa-tier__amount">$225</span>
+      <span class="nowa-tier__label">World-Changer Level Sponsor</span>
+    </div>
+    <div class="nowa-tier">
+      <span class="nowa-tier__amount">$150</span>
+      <span class="nowa-tier__label">Multiplier Level Sponsor</span>
+    </div>
+    <div class="nowa-tier">
+      <span class="nowa-tier__amount">$90</span>
+      <span class="nowa-tier__label">Protege&rsquo; Level Sponsor</span>
+    </div>
+    <div class="nowa-tier">
+      <span class="nowa-tier__amount">$30</span>
+      <span class="nowa-tier__label">Apprentice Level Sponsor</span>
+    </div>
+    <div class="nowa-tier">
+      <span class="nowa-tier__amount">15</span>
+      <span class="nowa-tier__label">Mentee Level Sponsor</span>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== BECOME A DONOR OR SPONSOR ===================== #}
+{% call section(tone="alt", narrow=true) %}
+  <div class="nowa-donor">
+    <h2 class="nowa-heading">Become a Donor or Sponsor</h2>
+    <p>Become an Event Sponsor or Donate for a worthy cause</p>
+    <p>{{ button("Donate", paypalUrl, variant="donate", attrs='target="_blank" rel="noopener"') }}</p>
+
+    <p class="nowa-donor__label">Sponsorship Levels &amp; Benefits Packet</p>
+    <p>{{ button("Download", (sponsorPacketUrl | url), variant="outline", attrs='target="_blank" rel="noopener"') }}</p>
+
+    <p class="nowa-donor__label">Got Questions?</p>
+    <p>{{ button("Schedule A Call", scheduleUrl, attrs='target="_blank" rel="noopener"') }}</p>
+  </div>
+{% endcall %}
+
+{# ===================== WILL YOU PRAYERFULLY BECOME A SPONSOR? ===================== #}
+{% call section(tone="tan") %}
+  <div class="nowa-prayer">
+    <h2 class="nowa-prayer__title">Will you prayerfully become a sponsor?</h2>
+  </div>
+{% endcall %}
+
+{# ===================== VISION + CONTRIBUTION STATS ===================== #}
+{% call section() %}
+  <div class="nowa-vision">
+    <h2 class="nowa-heading">Our Vision is to Reach and Equip 1,000 Women by 2028</h2>
+    <div class="nowa-goal">
+      <span class="nowa-goal__figure">$4,650</span>
+      <p>We will accomplish this vision through mentoring, leadership development and spiritual training. To make this possible, we depend on an annual budget of $155,000 &ndash; and every gift helps multiply the impact.</p>
+    </div>
+  </div>
+
+  <div class="nowa-contrib">
+    <h2 class="nowa-heading nowa-contrib__heading">Your Sponsorship and/or Contribution Helps:</h2>
+    <div class="nowa-stats">
+      <div class="nowa-stat">
+        <span class="nowa-stat__value">$540</span>
+        <span class="nowa-stat__label">150 One-on-One and Group Mentoring Support</span>
+      </div>
+      <div class="nowa-stat">
+        <span class="nowa-stat__value">$822</span>
+        <span class="nowa-stat__label">Train 300 Mentor Leaders</span>
+      </div>
+      <div class="nowa-stat">
+        <span class="nowa-stat__value">$750</span>
+        <span class="nowa-stat__label">Administrative Support for Growth</span>
+      </div>
+      <div class="nowa-stat">
+        <span class="nowa-stat__value">$888</span>
+        <span class="nowa-stat__label">Global Missions Expansion</span>
+      </div>
+    </div>
+  </div>
+
+  <figure class="nowa-testimonial">
+    <div class="nowa-testimonial__media">
+      <img src="{{ '/assets/img/nowa-nadia.jpg' | url }}" alt="" loading="lazy" />
+    </div>
+    <blockquote class="nowa-testimonial__quote">
+      <p>&ldquo;It&rsquo;s not apparent how challenging and rewarding mentoring is until you are the one doing the mentoring.&rdquo;</p>
+      <figcaption class="nowa-testimonial__cite">Nadia</figcaption>
+    </blockquote>
+  </figure>
+{% endcall %}
+
+{# ===================== 2026-2027 INCOME & EXPENSES ===================== #}
+{% call section(tone="alt", narrow=true) %}
+  <div class="nowa-budget">
+    <h2 class="nowa-heading">2026-2027 Income &amp; Expenses</h2>
+    <p>Our goal is to raise the $155,000 annual budget in support of our Mentor Programs, Global Missions, Operations, Events &amp; Marketing. See our detailed financial budget below.</p>
+    <div class="nowa-budget__cols">
+      <figure class="budget-donut">
+        <div class="budget-donut__ring" style="background:conic-gradient(#03a9f4 0 56%, #8bc34a 56% 92%, #7c2c83 92% 100%)" role="img" aria-label="Income: Contributions 56%, Mentoring Program 36%, Events 8%"></div>
+        <figcaption class="budget-donut__title">Income</figcaption>
+        <ul class="budget-donut__legend">
+          <li><span class="budget-donut__swatch" style="background:#03a9f4"></span>Contributions <b>56%</b></li>
+          <li><span class="budget-donut__swatch" style="background:#8bc34a"></span>Mentoring Program <b>36%</b></li>
+          <li><span class="budget-donut__swatch" style="background:#7c2c83"></span>Events <b>8%</b></li>
+        </ul>
+      </figure>
+      <figure class="budget-donut">
+        <div class="budget-donut__ring" style="background:conic-gradient(#7c2c83 0 12%, #8bc34a 12% 59%, #03a9f4 59% 78%, #e09d00 78% 100%)" role="img" aria-label="Expenses: Events &amp; Marketing 12%, Mentoring Programs 47%, Global Missions 19%, Operations 22%"></div>
+        <figcaption class="budget-donut__title">Expenses</figcaption>
+        <ul class="budget-donut__legend">
+          <li><span class="budget-donut__swatch" style="background:#7c2c83"></span>Events &amp; Marketing <b>12%</b></li>
+          <li><span class="budget-donut__swatch" style="background:#8bc34a"></span>Mentoring Programs <b>47%</b></li>
+          <li><span class="budget-donut__swatch" style="background:#03a9f4"></span>Global Missions <b>19%</b></li>
+          <li><span class="budget-donut__swatch" style="background:#e09d00"></span>Operations <b>22%</b></li>
+        </ul>
+      </figure>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== 2026-2027 MENTOR LEADERS OUTREACH ===================== #}
+{% call section() %}
+  {{ sectionHead("2026-2027 Mentor Leaders Outreach", center=true) }}
+  <div class="nowa-outreach">
+    <figure class="nowa-outreach__item">
+      <img src="{{ '/assets/img/nowa-usa.jpg' | url }}" alt="" loading="lazy" />
+      <figcaption>USA</figcaption>
+    </figure>
+    <figure class="nowa-outreach__item">
+      <img src="{{ '/assets/img/nowa-india.jpg' | url }}" alt="" loading="lazy" />
+      <figcaption>India</figcaption>
+    </figure>
+    <figure class="nowa-outreach__item">
+      <img src="{{ '/assets/img/nowa-kenya.jpg' | url }}" alt="" loading="lazy" />
+      <figcaption>Africa</figcaption>
+    </figure>
+    <figure class="nowa-outreach__item">
+      <img src="{{ '/assets/img/nowa-russia.jpg' | url }}" alt="" loading="lazy" />
+      <figcaption>Russia</figcaption>
+    </figure>
+  </div>
+{% endcall %}
+
+{# ===================== YOU CAN CHANGE A LIFE ===================== #}
+{% call section(tone="alt") %}
+  <div class="nowa-change">
+    <div class="nowa-change__body">
+      <h2 class="nowa-heading">You Can Change a Life</h2>
+      <p>Will you partner with us to Train Leaders who Transform Lives?</p>
+      <p>Thank you for your generosity.</p>
+      <p>{{ button("Donate", paypalUrl, variant="donate", attrs='target="_blank" rel="noopener"') }}</p>
+    </div>
+    <div class="nowa-change__media">
+      <img src="{{ '/assets/img/nowa-kenya-woman.jpg' | url }}" alt="" loading="lazy" />
+    </div>
+  </div>
+{% endcall %}

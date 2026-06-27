@@ -1,0 +1,142 @@
+---
+layout: base.njk
+title: NOWA - Full Supply
+description: >-
+  As Little As $100 Can Change a Life. No One Has to Walk Alone. Our annual
+  Fundraising Campaign, “No One Walks Alone,” also known as NOWA, is something we
+  strongly believe.
+pageCss: true
+---
+{% from "components/macros.njk" import button, section, sectionHead, hero, ctaBand, card, cardGrid %}
+
+{% set paypalUrl = "https://www.paypal.com/donate?hosted_button_id=ZAW63DGUPU27G&source=url" %}
+
+{# ===================== HERO ===================== #}
+{% set nowaHeroTitle %}<img class="nowa-hero__logo" src="{{ '/assets/img/nowa-logo.png' | url }}" alt="No One Walks Alone" /><span class="nowa-hero__heading">As Little As $100 Can Change a Life.</span>{% endset %}
+{% call hero(
+  nowaHeroTitle,
+  bgImage=("/assets/img/nowa-hero.jpg" | url),
+  overlay="light",
+  center=true
+) %}
+  {{ button("Donate", paypalUrl, variant="accent", size="lg", attrs='target="_blank" rel="noopener"') }}
+{% endcall %}
+
+{# ===================== INTRO / MISSION ===================== #}
+{% call section() %}
+  <div class="nowa-intro">
+    <div class="nowa-intro__media">
+      <img src="{{ '/assets/img/nowa-nadia-natasha-arthur.jpg' | url }}" alt="" loading="lazy" />
+    </div>
+    <div class="nowa-intro__body">
+      <h2>No One Has to Walk Alone</h2>
+      <p>Our annual Fundraising Campaign, &ldquo;No One Walks Alone,&rdquo; also known as NOWA, is something we strongly believe. Many Christian women are seeking a mentor, but they do not know who to ask or where to find one. That&rsquo;s why Full Supply trains leaders who transforms lives for Christ.</p>
+    </div>
+  </div>
+{% endcall %}
+
+{# ===================== CAMPAIGN ASK ===================== #}
+{% call section(tone="alt", size="tight") %}
+  <div class="nowa-ask">
+    <h2>We Are Seeking 1000 People to Give $100</h2>
+    <h2 class="nowa-ask__accent">As Little as $100 Can Change a Life</h2>
+    <p>Other Levels are Available&hellip; $10, $25, $50, $100 or more</p>
+    <div class="nowa-goal">
+      <span class="nowa-goal__figure">$5,000</span>
+      <span class="nowa-goal__label">Fundraising Goal by November 2021</span>
+    </div>
+    <h2 class="nowa-ask__prompt">Will you prayerfully give to our cause?</h2>
+  </div>
+{% endcall %}
+
+{# ===================== YOUR CONTRIBUTION HELPS (stats) ===================== #}
+{% call section() %}
+  {{ sectionHead("Your Contribution Helps:", center=true) }}
+  <div class="nowa-stats">
+    <div class="nowa-stat">
+      <span class="nowa-stat__figure">$900</span>
+      <span class="nowa-stat__label">Mentor 12 Women 1:1 and in Groups</span>
+    </div>
+    <div class="nowa-stat">
+      <span class="nowa-stat__figure">$1,370</span>
+      <span class="nowa-stat__label">Train 60 Mentor Leaders</span>
+    </div>
+    <div class="nowa-stat">
+      <span class="nowa-stat__figure">$1,250</span>
+      <span class="nowa-stat__label">Hire a Part-time Administrative Assistant</span>
+    </div>
+    <div class="nowa-stat">
+      <span class="nowa-stat__figure">$1,480</span>
+      <span class="nowa-stat__label">Global Missions to Russia, Kenya &amp; India</span>
+    </div>
+  </div>
+
+  <figure class="nowa-quote">
+    <img class="nowa-quote__photo" src="{{ '/assets/img/nowa-nadia.jpg' | url }}" alt="" loading="lazy" />
+    <blockquote>
+      <p>&ldquo;It&rsquo;s not apparent how challenging and rewarding mentoring is until you are the one doing the mentoring.&rdquo;</p>
+    </blockquote>
+    <figcaption>Nadia</figcaption>
+  </figure>
+{% endcall %}
+
+{# ===================== 2021 INCOME & EXPENSES ===================== #}
+{% call section(tone="tan") %}
+  <div class="section__head section__head--center"><h2>2021 Income &amp; Expenses</h2></div>
+  <p class="section__lead nowa-budget__intro">We need to raise $100,000 toward our $155,000 annual budget in support of our Mentor Programs, Global Missions and Operations. See our detailed financial budget below.</p>
+  <div class="nowa-budget">
+    <figure class="budget-donut">
+      <div class="budget-donut__ring" style="background:conic-gradient(#03a9f4 0 56%, #8bc34a 56% 92%, #7c2c83 92% 100%)" role="img" aria-label="Income: Contributions 56%, Mentoring Program 36%, Events 8%"></div>
+      <figcaption class="budget-donut__title">Income</figcaption>
+      <ul class="budget-donut__legend">
+        <li><span class="budget-donut__swatch" style="background:#03a9f4"></span>Contributions <b>56%</b></li>
+        <li><span class="budget-donut__swatch" style="background:#8bc34a"></span>Mentoring Program <b>36%</b></li>
+        <li><span class="budget-donut__swatch" style="background:#7c2c83"></span>Events <b>8%</b></li>
+      </ul>
+    </figure>
+    <figure class="budget-donut">
+      <div class="budget-donut__ring" style="background:conic-gradient(#7c2c83 0 12%, #8bc34a 12% 59%, #03a9f4 59% 78%, #e09d00 78% 100%)" role="img" aria-label="Expenses: Events &amp; Marketing 12%, Mentoring Programs 47%, Global Missions 19%, Operations 22%"></div>
+      <figcaption class="budget-donut__title">Expenses</figcaption>
+      <ul class="budget-donut__legend">
+        <li><span class="budget-donut__swatch" style="background:#7c2c83"></span>Events &amp; Marketing <b>12%</b></li>
+        <li><span class="budget-donut__swatch" style="background:#8bc34a"></span>Mentoring Programs <b>47%</b></li>
+        <li><span class="budget-donut__swatch" style="background:#03a9f4"></span>Global Missions <b>19%</b></li>
+        <li><span class="budget-donut__swatch" style="background:#e09d00"></span>Operations <b>22%</b></li>
+      </ul>
+    </figure>
+  </div>
+{% endcall %}
+
+{# ===================== 2021 MENTOR LEADERS OUTREACH ===================== #}
+{% call section() %}
+  {{ sectionHead("2021 Mentor Leaders Outreach", center=true) }}
+  {% call cardGrid(cols="4") %}
+    {{ card("USA", image=("/assets/img/nowa-usa.jpg" | url)) }}
+    {{ card("India", image=("/assets/img/nowa-india.jpg" | url)) }}
+    {{ card("Kenya", image=("/assets/img/nowa-kenya.jpg" | url)) }}
+    {{ card("Russia", image=("/assets/img/nowa-russia.jpg" | url)) }}
+  {% endcall %}
+
+  <figure class="nowa-quote">
+    <img class="nowa-quote__photo" src="{{ '/assets/img/nowa-melanie.jpg' | url }}" alt="" loading="lazy" />
+    <blockquote>
+      <p>&ldquo;I love the fact that I support a ministry that impacts women here in the U.S. and overseas. It&rsquo;s truly gratifying for me to know that I am helping to change a woman&rsquo;s life through giving.&rdquo;</p>
+    </blockquote>
+    <figcaption>Melanie</figcaption>
+  </figure>
+{% endcall %}
+
+{# ===================== YOU CAN CHANGE A LIFE (closing CTA) ===================== #}
+{% call section(tone="alt") %}
+  <div class="nowa-close">
+    <div class="nowa-close__media">
+      <img src="{{ '/assets/img/nowa-kenya-woman.jpg' | url }}" alt="" loading="lazy" />
+    </div>
+    <div class="nowa-close__body">
+      <h2>You Can Change a Life</h2>
+      <p>Will you partner with us to Train Leaders who Transform Lives?</p>
+      <p>Thank you for your generosity.</p>
+      {{ button("Donate", paypalUrl, variant="accent", size="lg", attrs='target="_blank" rel="noopener"') }}
+    </div>
+  </div>
+{% endcall %}
